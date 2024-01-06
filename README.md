@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+contacts name dagmawi amare more contact .amaredagmawi1@gmail.com phone 0985187059
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

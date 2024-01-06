@@ -1,0 +1,137 @@
+
+#products {
+  background-color: var(--abg);
+  padding: 40px 0;
+  margin-bottom: 0%;
+  position: relative;
+}
+
+.homepage-products-section {
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+  text-align: center;
+}
+
+.products-header a {
+  text-decoration: none;
+  color: var(--primaryColor);
+  font-size: 2rem;
+}
+
+.products-subheader {
+  color: #e0d7d7;
+  font-size: 1.2rem;
+  
+  text-align: center;
+  padding: 0 10%;
+}
+
+
+.products-container-wrapper {
+ 
+  overflow-x: auto;
+  width: 100%;
+}
+.products-container-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.products-container-wrapper::-moz-scrollbar {
+  display: none;
+}
+.products-container {
+ 
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
+
+  /* padding: 0 30px; */
+}
+
+.product-wrapper {
+  margin: 10px;
+  
+}
+
+.product-card {
+  height: 100%;
+  border-radius: 0;
+  box-shadow: 0px 1px 1px 0px #cacaca;
+  transition: transform 0.3s;
+  width: 210px; 
+  max-width: 100%;
+  /* max-width: 230px;  */
+  background-color: fff;
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  border: solid 1px #a8abad;
+ 
+  transform: scale(1.05);
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-image {
+  width: 100%;
+  height: 20vh;
+  object-fit: cover;
+}
+
+.product-body {
+  padding: 20px;
+  background-color: var(--primaryBackground);
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--primaryColor);
+}
+
+.product-description {
+  color: #eee8e8;
+}
+.product-dots {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  
+}
+
+.product-dot {
+
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  
+  margin: 0 7px;
+  cursor: pointer;
+  border: 2px solid white;
+  
+}
+
+.product-dot.active {
+  background-color: #f4f807;
+  
+}
+
+.product-card {
+  /* Set initial position or any other styling */
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.product-card.slide-in {
+  transform: translateX(100%); /* Adjust the direction and distance as needed */
+}

@@ -1,0 +1,95 @@
+
+/* ................contact banner........ */
+
+.bancontact_area .bancontact_shap {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 400ms;
+  transition-delay: 0ms;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+section.bancontact_area:before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+
+.bancontact_area {
+  background: url("../../../public/Contact1.jpg"); 
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 250px 0 145px;
+  z-index: 1;
+}
+section.bancontact_area {
+  background-repeat: no-repeat!important;
+  background-position: center center!important;
+  background-size: cover!important;
+}
+
+
+
+
+
+.bancontact_area::after {
+  content: '';
+  position: absolute;
+  background-color: rgba(0, 14, 27, 0.692);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+
+/* ................contact banner........ */
+
+.contact form div {
+  display: flex;
+}
+.contact textarea {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.contact input {
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+.contact form {
+  padding: 30px;
+}
+@media screen and (max-width: 768px) {
+  .contact h4 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .contact form div {
+    flex-direction: column;
+  }
+  .contact input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+
+  }
+}

@@ -1,0 +1,136 @@
+/* ServiceDescription.css */
+
+.sdbody {
+  /* font-family: 'Montserrat', 'Lucida Sans', Arial, sans-serif; */
+  background-color: var(--abg);
+  color: #333;
+  margin: 0%;
+  padding-top: 0;
+  width:100%;
+}
+.sdbody h1 {
+  align-items: center;
+  color: var(--primaryColor);
+  padding-top: 20px ;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0%;
+}
+
+.service-container h1 {
+  text-align:center;
+  align-items: center;
+  color: #007bff;
+  margin-bottom: 30px;
+}
+
+.service-container {
+  display: flex;
+ 
+  width: 94%;
+  flex-wrap: wrap;
+  margin-left:3%;
+  margin-right:3%;
+  justify-content: center;
+ 
+ 
+}
+
+.service-item {
+ 
+  width: 100%;
+  box-sizing: border-box;
+  margin: 15px ;
+  
+  background-color: var(--primaryBackground);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  text-align: left;
+}
+
+.service-item:hover {
+  transform: scale(1.05);
+}
+.service-item.selected {
+  
+  border: 2px solid #ffcc00;
+}
+.sd-img{
+  display: flex;
+  align-items: center;
+  flex:1;
+  justify-content: center;
+  
+  
+}
+.sd-img img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 5px;
+ 
+}
+
+.service-content {
+  margin-top: 20px;
+  flex:3;
+  margin-left: 20px;
+}
+
+.service-content p {
+  margin: 0 0 15px;
+  margin-right: 10px;
+  color: white;
+}
+.service-content p strong {
+ 
+  margin-right: 10px;
+  color:var(--primaryColor);
+  font-size: larger;
+}
+
+.btn-visit {
+  display: inline-block;
+  padding: 12px 24px;
+  text-decoration: none;
+  color:   #0056b3;
+  
+  background-color: transparent;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out;
+  margin-bottom: 10px;
+  align-items: last baseline;
+  text-align: right;
+  margin-left: auto;
+  justify-content: right;
+  float: right;
+}
+
+.btn-visit:hover {
+  color:var(--primaryColor)
+}
+@media screen and (max-width: 768px) {
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+.sd-img{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sd-img img{
+  margin-top: 10px;
+  width: 300px;
+  height: auto;
+}
+
+
+  
+}
