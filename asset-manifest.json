@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bazraf/static/css/main.fae55114.css",
+    "main.js": "/bazraf/static/js/main.f974e66e.js",
+    "static/media/video.mp4": "/bazraf/static/media/video.1ff9c5efbd7350c1e1ec.mp4",
+    "static/media/Lada Vesta Cross.mp4": "/bazraf/static/media/Lada Vesta Cross.9ccb29d184d74d39dc88.mp4",
+    "static/media/blog.jpg": "/bazraf/static/media/blog.5add521811117ba1df39.jpg",
+    "static/media/p1.jpg": "/bazraf/static/media/p1.b7e58c6d515020f70017.jpg",
+    "static/media/vesta3.jpg": "/bazraf/static/media/vesta3.314afe94ed07418da61b.jpg",
+    "static/media/online-sales.jpg": "/bazraf/static/media/online-sales.537d087de34a6aa8b48d.jpg",
+    "static/media/Contact1.jpg": "/bazraf/static/media/Contact1.fdb9f68736be8b131a69.jpg",
+    "static/media/max_vygoda-up.jpg": "/bazraf/static/media/max_vygoda-up.4cf5a6d0eef19268c560.jpg",
+    "static/media/slick.svg": "/bazraf/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/bazraf/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/bazraf/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/bazraf/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/bazraf/index.html",
+    "main.fae55114.css.map": "/bazraf/static/css/main.fae55114.css.map",
+    "main.f974e66e.js.map": "/bazraf/static/js/main.f974e66e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fae55114.css",
+    "static/js/main.f974e66e.js"
+  ]
+}
