@@ -42,7 +42,6 @@ const renderCompanyOverview = () => {
 
 const Home = () => {
   useEffect(() => {
-    // Scroll to the top of the window when the component mounts
     window.scrollTo(0, 0);
   }, []);
   return (
