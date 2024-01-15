@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import './blog.css'
 import Headerb from './b-header'
 import Post from './posts'
@@ -10,13 +10,13 @@ const Blog = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <> 
-    <div>
-    <BackBlog   title='Welcome To Our BLOG'  cover={img} />          
-    <div className="home">
-        <Post />
-        {/* <Sidebar /> */}
-      </div>
+    <>
+      <div>
+        <BackBlog title='Welcome To Our BLOG' cover={img} />
+        <div className="home">
+          <Post />
+          {/* <Sidebar /> */}
+        </div>
 
       </div>
 

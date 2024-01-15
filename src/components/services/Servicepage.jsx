@@ -6,6 +6,7 @@ import ServiceDescription from './ServiceDescription'
 import "./Services.css";
 import videoSource from '../../Lada Vesta Cross.mp4';
 import Portfolio from "../portfolioBC/Portfolio";
+import { Link } from 'react-router-dom';
 
 
 const Servicepage = () => {
@@ -24,9 +25,12 @@ const Servicepage = () => {
         {/* <p className="service-description">
           Whether you are looking for strategic consulting, robust development, seamless integration, or reliable support, our team of experts is here to guide you at every step of your journey.
         </p> */}
-        <a href="/contactpage" className="service-button">
+         <Link to="/contactpage" >          
+         <a href="/contactpage" className="service-button">
         👉 Get in Touch 👈
         </a>
+          </Link>
+
       </div>
       <div className="ser-img">
         {/* <img src="../../../bzs.png" alt="service-img" />  */}

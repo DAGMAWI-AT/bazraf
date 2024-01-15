@@ -72,9 +72,9 @@ const Hero = () => {
         </div>
         <hr />
         <br />
-        <div>
+        <div className="readMore"> 
           <Link to="/services" className="primaryBtn" data-aos="fade-up-right">
-            Read More
+            <a className="Read">Read More</a>
           </Link>
         </div>
       </div>

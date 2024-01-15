@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { serviceData } from "../data/Data";
 import { useLocation, useHistory } from "react-router-dom";
 import './ServiceDescription.css';
+import { Link } from 'react-router-dom';
 
 
 const ServiceDescription = () => {
@@ -38,9 +39,11 @@ const ServiceDescription = () => {
                 <strong className="text-uppercase">{service.title}</strong>
               </p>
               <p>{service.description}</p>
+            <Link to="/contactpage" >          
               <a href={service.websiteLink}  rel="noopener noreferrer" className="btn-visit">
               👉 Contact us for more information
               </a>
+              </Link>
             </div>
           </div>
         ))}

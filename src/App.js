@@ -10,7 +10,6 @@ const ZENDESK_KEY = "b9c1711c-e9a9-4577-80e4-8705aca15977";
 
 function App() {
   useEffect(() => {
-    // Scroll to the top of the window when the component mounts
     window.scrollTo(0, 0);
   }, []);
 
@@ -26,9 +25,7 @@ function App() {
     overflow: 'hidden',
     backgroundColor: "#000000e7",
   };
-  // source={{
-  //   uri: "https://assets.stickpng.com/thumbs/6160562276000b00045a7d97.png",
-  // }} 
+
   const videoStyle = {
     position: "fixed",
     top: 0,
@@ -42,7 +39,6 @@ function App() {
   };
 
   const overlayStyle = {
-    // Add overlay styles if needed
   };
 
   return (

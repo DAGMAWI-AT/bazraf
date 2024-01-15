@@ -25,10 +25,10 @@ const departmentsData = [
 
     services: ['Social Media Campaigns', 'Content Marketing', 'Market Research'],
   },
-  
+
   {
     id: 'it',
-    title:"Manifacturing Department",
+    title: "Manifacturing Department",
     image: '../../../manif.jpg',
     description: 'Ethiopia To Manufacture Lada Cars For The African Market - Russia Briefing News Ethiopia will launch the production of Russian Lada cars on its territory for the African market, the countries Ambassador to Russia Cham',
     services: ['Network Management', 'Software Development', 'Cybersecurity'],

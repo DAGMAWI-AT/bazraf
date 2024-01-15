@@ -6,8 +6,8 @@ const BackBlog = ({ name, title, cover, desc }) => {
     width: "100%",
     height: "100%",
     overflow: "hidden",
-    backgroundColor:"#fff",
-    zIndex:1,
+    backgroundColor: "#fff",
+    zIndex: 1,
   };
 
   const videoStyle = {
@@ -29,21 +29,21 @@ const BackBlog = ({ name, title, cover, desc }) => {
     margin: "0",
     objectFit: "cover", // This ensures the video covers the entire container
     overflow: "hidden",
-    background:"cover",
-    aligntext:"center",
-     // Ensure the content appears above the video
+    background: "cover",
+    aligntext: "center",
+    // Ensure the content appears above the video
   };
 
   return (
     <div className='back BackBlog' style={containerStyle}>
-      
-    <img src={cover} alt='' />
-     
+
+      <img src={cover} alt='' />
+
       <div className='container' style={contentStyle}>
         <span className="heading">{name}</span>
         <h1 className="heading backBn">{title}</h1>
 
-{/*        <div className="BackDesc"> 
+        {/*        <div className="BackDesc"> 
            <p> {desc} </p>
   </div>*/}
       </div>

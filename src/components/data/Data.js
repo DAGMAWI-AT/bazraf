@@ -457,7 +457,7 @@ export const list = [
 export const footer = [
   { icon: <Twitter/>,
   title: "Bazra",
-   text: [{ list: <a href="/"><b>Home</b></a> }, { list: <a href="/services"><b>Service</b></a>}, { list:  <a href="/about"><b>About Us</b></a>}, { list:  <a href="/blog"><b>Blogs</b></a> },{ list:  <a href="/contactpage"><b>Contacts</b></a> },],
+   text: [{ list: <Link to="/"><a href="/"><b>Home</b></a></Link> }, { list:<Link to="/services" > <a href="/services"><b>Service</b></a></Link>}, { list: <Link to="/about" > <a href="/about"><b>About Us</b></a></Link>}, { list: <Link to="/blog" ><a href="/blog"><b>Blogs</b></a></Link>  },{ list: <Link to="/contactpage" ><a href="/contactpage"><b>Contacts</b></a></Link> },],
  },
   {
     icon: <Facebook/>,
