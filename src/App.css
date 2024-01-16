@@ -198,7 +198,6 @@ header {
 
 .header_scroll {
   background: rgba(7, 7, 7, 0.89);
-  /* Adjust the transparency when scrolling */
 }
 
 
@@ -239,24 +238,19 @@ header img {
   background-color: var(--primaryColor);
   transform-origin: left;
   transform: scaleX(0);
-  /* Initial state: no underline */
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-  /* Add transitions for both transform and color */
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 1;
   margin-top: 10px;
-  /* Adjust the padding to control the gap between text and underline */
 
 }
 
 .nav .active:hover::before,
 .nav a:hover::before {
   transform: scaleX(1.1);
-  /* Expand the underline on hover */
   color: var(--primaryColor);
-  /* Change the color on hover */
   margin-top: 40px;
 }
 
@@ -267,7 +261,6 @@ header img {
   color: var(--primaryColor);
   position: relative;
   padding-bottom: 1px;
-  /* Adjust the padding to control the gap between text and underline */
 }
 
 .nav .active:after {
