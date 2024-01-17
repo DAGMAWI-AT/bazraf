@@ -17,7 +17,6 @@ import Servicepage from "../services/Servicepage"
 
 const Pages = () => {
   useEffect(() => {
-    // Scroll to the top of the window when the component mounts
     window.scrollTo(0, 0);
   }, []);
   return (
