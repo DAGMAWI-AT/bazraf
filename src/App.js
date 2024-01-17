@@ -21,7 +21,7 @@ function App() {
   const videoContainerStyle = {
     // position: 'relative',
     width: '100%',
-    height: 'auto', /* Use viewport height units */
+    height: 'auto', 
     overflow: 'hidden',
     backgroundColor: "#000000e7",
   };
