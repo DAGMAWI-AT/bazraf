@@ -9,7 +9,6 @@ import { useParams, useHistory} from 'react-router-dom';
 import { postData } from '../data/Data';
 import BackBlog from "./b-header"
 
-// Import statements...
 
 export default function Singlepost() {
   const { id } = useParams();
@@ -94,7 +93,6 @@ const handleSearchClick = () => {
         </div>
           </div>
 
-          {/* Add your recent blogs component here */}
           <div className="recentBlogs">
           <h2>Search Results</h2>
           {searchedPosts.map((filteredPost) => (
