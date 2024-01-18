@@ -13,7 +13,7 @@ const Back = ({ name, title, cover, desc }) => {
   const videoStyle = {
     width: "100%",
     height: "100%",
-    objectFit: "cover", // This ensures the video covers the entire container
+    objectFit: "cover", 
   };
 
   const contentStyle = {
@@ -24,13 +24,12 @@ const Back = ({ name, title, cover, desc }) => {
     left: "50%",
     backgroundColor: "#0000006c",
     transform: "translate(-50%, -50%)",
-    color: "#000", // Customize text color
+    color: "#000", 
     zIndex: 5,
     margin: "0",
-    objectFit: "cover", // This ensures the video covers the entire container
+    objectFit: "cover", 
     overflow: "hidden",
     background:"cover"
-     // Ensure the content appears above the video
   };
 
   return (
