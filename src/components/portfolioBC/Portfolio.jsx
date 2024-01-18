@@ -52,7 +52,6 @@ const Portfolio = () => {
                 <div className="overlay">
                   <h3 data-aos="fade-down-right">{item.title}</h3>
                   <span data-aos="fade-down-left">{item.name}</span>
-                  {/* <Visibility /> Uncomment this line if you use the Visibility icon */}
                 </div>
               </div>
             ))}
