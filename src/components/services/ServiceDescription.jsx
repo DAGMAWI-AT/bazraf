@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 
 const ServiceDescription = () => {
-  // Placeholder data for six services
   const history = useHistory();
   const { search } = useLocation();
   const [selectedService, setSelectedService] = useState(null);
