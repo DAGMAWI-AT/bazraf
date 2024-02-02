@@ -46,7 +46,6 @@ function App() {
       <video autoPlay loop muted style={videoStyle}>
         <source src={video} type="video/mp4" />
       </video>
-      <div style={overlayStyle}></div>
       <Zendesk defer zendeskKey={ZENDESK_KEY} />
       <Pages />
     </div>
