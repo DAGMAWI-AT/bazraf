@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import { Outlet } from 'react-router-dom';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import video from './video.mp4';
 import Pages from './components/page/Pages';
 import Zendesk from './ZendeskConfig';
-
 const ZENDESK_KEY = "b9c1711c-e9a9-4577-80e4-8705aca15977";
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
   }, []);
 
   const videoContainerStyle = {
-    // position:'relative' @id:jcbuisson.vue ,
+    // position: 'relative',
     width: '100%',
     height: 'auto', 
     overflow: 'hidden',
@@ -46,9 +45,11 @@ function App() {
       <video autoPlay loop muted style={videoStyle}>
         <source src={video} type="video/mp4" />
       </video>
-      <div style={overlayStyle}></div>
+
       <Zendesk defer zendeskKey={ZENDESK_KEY} />
+      <Outlet/>
       <Pages />
+
     </div>
   );
 }

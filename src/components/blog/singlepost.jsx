@@ -5,7 +5,7 @@ import Posts from "./posts";
 import Headerb from "./b-header";
 import img from "../images/blog.jpg"
 import Back from "../common/Back"
-import { useParams, useHistory} from 'react-router-dom';
+import { useParams, useHistory,useNavigate} from 'react-router-dom';
 import { postData } from '../data/Data';
 import BackBlog from "./b-header"
 
@@ -14,7 +14,7 @@ import BackBlog from "./b-header"
 export default function Singlepost() {
   const { id } = useParams();
   const post = postData.find((p) => p.id === parseInt(id));
-  const history= useHistory();
+  const history= useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchedPosts, setSearchedPosts] = useState([]);
     useEffect(() => {

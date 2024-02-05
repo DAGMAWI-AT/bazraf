@@ -6,9 +6,9 @@ module.exports = withMT({
     "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      width :{
-        container:"100%"
-    },
+    //   width :{
+    //     container:"100%"
+    // },
       // colors: {
       //   gray: {
       //     200: "#D5DAE1"

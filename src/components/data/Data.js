@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faFacebook, faInstagram ,faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import { MdEmail, MdLocalPhone, } from 'react-icons/md';
 
+
 export const nav = [
+
   {
     text: "Home",
     path: "/",
@@ -25,8 +27,13 @@ export const nav = [
  
   {
     text: "Contact",
-    path: "/contactpage",
+    path: "/contact",
   },
+  {
+    text: "Admin",
+    path: "/admin/dashboard",
+  },
+
 ]
 
 export const home =[

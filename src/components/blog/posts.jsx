@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory,useNavigate } from "react-router-dom";
 import "./post.css";
 import { motion as m } from 'framer-motion';
 import { postData, overview } from "../data/Data";
@@ -10,7 +10,7 @@ export default function Posts() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const history = useHistory();
+  const history = useNavigate();
   const [postLikes, setPostLikes] = useState({});
   const [postDislikes, setPostDislikes] = useState({});
   const [postLoves, setPostLoves] = useState({});

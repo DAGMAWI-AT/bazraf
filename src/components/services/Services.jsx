@@ -1,7 +1,7 @@
 import React ,{useEffect}from "react"
 import Heading from "../common/Heading"
 import { service } from "../data/Data"
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory,useNavigate } from "react-router-dom";
 import './Services.css'
 // import video from "../video/bazra1.mp4"
 // import Back from "../common/Back"
@@ -13,7 +13,7 @@ const Services = () => {
     window.scrollTo(0, 0);
   }, []);
   
-    const history = useHistory();
+    const history = useNavigate();
   
     const handleClick = (index) => {
       history.push(`/services?section=${index}`);

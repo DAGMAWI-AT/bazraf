@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Back from "../common/Back"
 import Heading from "../common/Heading"
-import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import { Link } from "react-router-dom"
 import img from "../images/vesta3.jpg"
 import "./about.css"
 import Departments from "./Departments"

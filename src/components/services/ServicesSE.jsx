@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Heading from "../common/Heading";
 import { Banservice, service } from "../data/Data";
 import { Link, Element, scroller } from 'react-scroll';
-import { useHistory } from "react-router-dom";
+import { useHistory ,useNavigate} from "react-router-dom";
 
 import Portfolio from "../portfolioBC/Portfolio";
 import "./Services.css";
@@ -18,7 +18,7 @@ const ServicesSE = () => {
       };
 
 
-      const history = useHistory();
+      const history = useNavigate();
   
     const handleClick = (index) => {
       history.push(`/services?section=${index}`);

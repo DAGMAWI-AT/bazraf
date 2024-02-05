@@ -23,8 +23,8 @@
 }
 
 body {
-  background-color: var(--headingColor);
-  color: var(--white);
+  background-color: grey;
+  /* color: var(--white); */
   font-family: "Playfair", Playfair;
 }
 
@@ -37,7 +37,12 @@ a {
 a:hover {
   color: var(--primaryColor);
 }
+.bg-color p{
+  padding: 10px;
+  font-size: 50px;
+  color: black;
 
+}
 p {
   color: var(--sliver);
   font-size: 18px;
@@ -76,7 +81,7 @@ section {
 
 .flex {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 
