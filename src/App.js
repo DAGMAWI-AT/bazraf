@@ -21,6 +21,7 @@ function App() {
     // position: 'relative',
     width: '100%',
     height: 'auto', 
+    height: 'auto', 
     overflow: 'hidden',
     backgroundColor: "#000000e7",
   };

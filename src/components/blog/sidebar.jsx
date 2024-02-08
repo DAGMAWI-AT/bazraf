@@ -11,31 +11,30 @@ export default function Sidebar() {
           alt=""
         />
         <p>
-          Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit
-          amet ex esse.Sunt eu ut nostrud id quis proident.
+       
         </p>
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Life">
-              Life
+            <Link className="link" to="/posts?cat=car">
+              car
             </Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Music">
-              Music
+            <Link className="link" to="/posts?cat=It">
+              IT
             </Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Sport">
-              Sport
+            <Link className="link" to="/posts?cat=Maniifuacur">
+              Maniifuacur
             </Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Style">
-              Style
+            <Link className="link" to="/posts?cat=Agriculture">
+              Agriculture 
             </Link>
           </li>
           <li className="sidebarListItem">
@@ -44,8 +43,8 @@ export default function Sidebar() {
             </Link>
           </li>
           <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Cinema">
-              Cinema
+            <Link className="link" to="/posts?cat=Export">
+              Export
             </Link>
           </li>
         </ul>
