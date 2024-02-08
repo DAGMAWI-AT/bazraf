@@ -17,6 +17,7 @@ import Cars from "../admin/dashboard/Cars";
 import EditCars from "../admin/dashboard/EditCars";
 import Uplodcar from "../admin/dashboard/Uplodcar";
 import ManageCars from "../admin/dashboard/ManageCars";
+import ViewCars from "../admin/dashboard/ViewCars";
 
 
 const router = createBrowserRouter([
@@ -82,6 +83,11 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-cars/:id",
         element: <EditCars />,
         loader: ({params})=>fetch(`http://localhost:8000/updatecars/${params.id}`)
+      },
+      {
+        path: "/admin/dashboard/viewdetailcars/:id",
+        element: <ViewCars />,
+        loader: ({params})=>fetch(`http://localhost:8000/allcars/${params.id}`)
       },
     ],
   },

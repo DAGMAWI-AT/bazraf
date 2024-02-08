@@ -10,7 +10,7 @@ export default function Posts() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [postLikes, setPostLikes] = useState({});
   const [postDislikes, setPostDislikes] = useState({});
   const [postLoves, setPostLoves] = useState({});
@@ -60,7 +60,7 @@ export default function Posts() {
 
   const handleDoubleClick = () => {
     // Navigate to the specified page when double-clicked
-    history.push("/blog/singlepost");
+  navigate("/blog/singlepost");
   };
   const location = useLocation();
   const isSinglepostPage = location.pathname.includes('/blog/singlepost'); 

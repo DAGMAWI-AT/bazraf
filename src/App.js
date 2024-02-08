@@ -21,7 +21,6 @@ function App() {
     // position: 'relative',
     width: '100%',
     height: 'auto', 
-    height: 'auto', 
     overflow: 'hidden',
     backgroundColor: "#000000e7",
   };
@@ -36,9 +35,6 @@ function App() {
     objectFit: 'cover',
     display: "hidden",
     zIndex: -1,
-  };
-
-  const overlayStyle = {
   };
 
   return (

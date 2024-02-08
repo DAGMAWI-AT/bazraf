@@ -1,0 +1,99 @@
+
+
+  .sidebar-item span{
+    color: silver;
+  }
+  
+  .sidebar-item svg {
+    margin-right: 10px; 
+  }
+  
+ 
+
+.sidebar-wrapper {
+    width: 240px; 
+    transition: width 0.3s;
+    overflow-x: hidden;
+  }
+  
+  .sidebar-wrapper.collapsed {
+    width: 60px;
+  }
+  
+  .toggle-collapse {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  
+  .AdminLogo{
+    left: 40px;
+  }
+ 
+  
+  .sidebar-wrapper.collapsed {
+    width: 80px; 
+  }
+  
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  /* Add these styles to your CSS file or in the style attribute of the components */
+.car-details-container {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.car-details-title {
+  color: #333;
+}
+
+.car-image-container {
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.car-info {
+  text-align: left;
+}
+
+.car-info-item {
+  margin: 10px 0;
+}

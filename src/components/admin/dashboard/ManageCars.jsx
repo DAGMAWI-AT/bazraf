@@ -7,7 +7,7 @@ function ManageCars() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCategory, setFilterCategory] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [carsPerPage] = useState(3); // Change this value to control the number of cars per page
+  const [carsPerPage] = useState(3);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,10 +57,9 @@ function ManageCars() {
 
   return (
     <div className='px-4 my-12'>
-
-    <h2 className='mb-8 text-3xl font-bold text-center' style={{ color: '#2d2e2e' }}>
-    Manage Cars
-  </h2>
+      <h2 className='mb-8 text-3xl font-bold text-center' style={{ color: '#2d2e2e' }}>
+        Manage Cars
+      </h2>
       {/* Search and Filter Controls */}
       <div className="mb-4">
         <input
@@ -78,32 +77,41 @@ function ManageCars() {
           <tr>
             <th>Product id</th>
             <th>Product name</th>
-            <th>Color</th>
             <th>Category</th>
+            <th>CarImg</th>
+            <th>Descripion</th>
             <th>Price</th>
-            <th>Action</th>
+            <th className='text-center'>Action</th>
           </tr>
         </thead>
         <tbody className="divide-y">
-          {currentCars.map((item, i) => (
-            <tr key={item._id} className="bg-white dark:border-black-700 dark:bg-gray-800">
-              <td>{i + 1}</td>
-              <td>{item.name}</td>
-              <td>{item.category}</td>
-              <td>
-                <img src={item.imageUrl} alt="" style={{ width: '50px', height: '50px' }} />
-              </td>
-              <td>describes</td>
-              <td>
-                <button onClick={() => handleEdit(item._id)} className="font-medium text-cyan-600 hover:underline dark:text-cyan-500 mr-1">
-                  Edit
+          {currentCars.map((item, i) => {
+            const productId = i + 1 + (currentPage - 1) * carsPerPage;
+            return (
+              <tr key={item._id} className="bg-white dark:border-black-700 dark:bg-gray-800">
+                <td>{productId}</td>
+                <td>{item.name}</td>
+                <td>{item.category}</td>
+                <td>
+                  <img src={item.imageUrl} alt="" style={{ width: '50px', height: '50px' }} />
+                </td>
+                <td>describes</td>
+                <td>{item.price}</td>
+                <td>
+                  <button onClick={() => handleEdit(item._id)} className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0 ">
+                    Edit
+                  </button>
+                  <button onClick={() => handleDelete(item._id)} className='bg-red-600 px-1 py-1 font-semibold hover:bg-orange-700 text-white  hover:bg-sky-600 mr-0'>
+                    Delete
+                  </button>
+                  <button onClick={() => navigate(`/admin/dashboard/viewdetailcars/${item._id}`)} className="bg-blue-600 px-1 py-1 font-semibold hover:bg-blue-700 text-white  hover:bg-sky-600 mr-0">
+                  View
                 </button>
-                <button onClick={() => handleDelete(item._id)} className='bg-red-600 px-4 py-1 font-semibold text-white rounded-sm hover:bg-sky-600'>
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
+      
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
 

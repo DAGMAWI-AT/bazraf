@@ -18,10 +18,10 @@ const ServicesSE = () => {
       };
 
 
-      const history = useNavigate();
+      const navigate = useNavigate();
   
     const handleClick = (index) => {
-      history.push(`/services?section=${index}`);
+    navigate(`/services?section=${index}`);
     };
   return (
     <>

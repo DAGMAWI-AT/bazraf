@@ -1,93 +1,118 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { Button, Label, Select, TextInput, Textarea } from 'flowbite-react';
 
 function EditCars() {
-  const { id } = useParams();
-  const [carData, setCarData] = useState({});
-  const [editedData, setEditedData] = useState({
-    // Define the state structure for edited data
-    name: '',
-    category: '',
-    imageUrl: '',
-    // ... other fields
-  });
-  const {name, category, imageUrl,description, price}=useLoaderData();
+  const {id} = useParams();
+  const navigate = useNavigate(); // Create a navigate function
 
-  useEffect(() => {
-    // Fetch the car data based on the ID from the URL
-    fetch(`http://localhost:8000/getcar/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCarData(data);
-        // Set the initial state for edited data
-        setEditedData({
-          name: data.name,
-          category: data.category,
-          imageUrl: data.imageUrl,
-          // ... other fields
-        });
-      })
-      .catch((error) => {
-        console.error('Error fetching car data:', error);
-      });
-  }, [id]);
+  const { name, category, imageUrl, description, price } = useLoaderData();
+  console.log("Loader Data:", { name, category, imageUrl, description, price });
+  
+  const carCategory = ["Lada Vasta", "Lada 4x4", "Lada Cross"];
+  const [selectedCarCategory, setSelectedCarCategory] = useState(carCategory[0]);
 
-  const handleInputChange = (e) => {
-    // Update the state when input fields change
-    setEditedData({
-      ...editedData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChangeSelectedValue = (event) => {
+    console.log(event.target.value);
+    setSelectedCarCategory(event.target.value);
   };
 
-  const handleSaveChanges = () => {
-    // Perform the update to the backend with the edited data
-    fetch(`http://localhost:8000/updatecar/${id}`, {
+  // handle cars submission
+  const handleCarUpdate = (event) => {
+    event.preventDefault();
+    const form = event.target;
+
+    const name = form.name.value;
+    const category = form.category.value;
+    const imageUrl = form.imageUrl.value;
+    const description = form.description.value;
+    const price = form.price.value;
+
+    const UpdateCar = {
+      name,
+      category,
+      imageUrl,
+      description,
+      price,
+    };
+console.log(UpdateCar);
+
+
+    fetch(`http://localhost:8000/updatecars/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(editedData),
+      body: JSON.stringify(UpdateCar),
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('Car data updated successfully');
-        // You can redirect to the manage cars page or take any other action
-      })
-      .catch((error) => {
-        console.error('Error updating car data:', error);
+        navigate('/admin/dashboard/managecars');
+        alert('Car Update Successfully');
+        // navigate('/admin/dashboard/managecars'); // Redirect to the manage cars page
+
+        // form.reset();
       });
   };
 
   return (
-    <div>
-      <h2>Edit Car - {id}</h2>
-      {/* Render your form with input fields for editing data */}
-      <form>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={editedData.name}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        <label>
-          Category:
-          <input
-            type="text"
-            name="category"
-            value={editedData.category}
-            onChange={handleInputChange}
-          />
-        </label>
-        <br />
-        {/* Add other fields as needed */}
-        <button type="button" onClick={handleSaveChanges}>
-          Save Changes
-        </button>
+    <div className='px-4 my-12'>
+      <h2 className='mb-8 text-3xl font-bold text-center' style={{ color: '#2d2e2e' }}>
+        Update Cars
+      </h2>
+
+      <form onSubmit={handleCarUpdate} className='flex lg:w-[1080px] flex-col flex-wrap gap-4'>
+        <div className='flex gap-8'>
+          <div className='lg:w-1/2'>
+            <div className='mb-2 block'>
+              <Label htmlFor='name' value='Car name' />
+            </div>
+            <TextInput id='name' name='name' type='text' placeholder='name of car' sizing='lg' defaultValue={name} required  />
+          </div>
+
+          <div className='lg:w-1/2'>
+            <div className='mb-2 block'>
+              <Label htmlFor='category' value='Car category' />
+            </div>
+            <Select
+              sizing='lg'
+              id='category'
+              name='category'
+              className='w-full rounded'
+              value={selectedCarCategory}
+              onChange={handleChangeSelectedValue}
+            >
+              {carCategory.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </Select>
+          </div>
+        </div>
+
+        <div className='flex gap-8'>
+          <div className='lg:w-1/2'>
+            <div className='mb-2 block'>
+              <Label htmlFor='price' value='Car price' />
+            </div>
+            <TextInput id='price' type='text' placeholder='price of car' defaultValue={price} sizing='lg' required />
+          </div>
+          <div className='lg:w-1/2'>
+            <div className='mb-2 block'>
+              <Label htmlFor='imageUrl' value='Car image' />
+            </div>
+            <TextInput id='imageUrl' type='text' sizing='lg' defaultValue={imageUrl} />
+          </div>
+        </div>
+
+        <div className='mb-2 block'>
+          <Label htmlFor='description' value='Car description' className='text-bold text-black' />
+        </div>
+        <Textarea className='w-full' id='description' type='text' placeholder='Write description of car...' defaultValue={description} required rows={6} />
+        <Button type='submit' className='mt-5' style={{ color: '#11224893', background: '#11224893' }}>
+          Update Car
+        </Button>
       </form>
     </div>
   );
