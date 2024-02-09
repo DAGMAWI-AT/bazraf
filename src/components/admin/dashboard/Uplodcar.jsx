@@ -29,7 +29,7 @@ function Uplodcar() {
       price,
     };
 
-    fetch('http://localhost:8000/addcars', {
+    fetch('https://bazra.onrender.com/addcars', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

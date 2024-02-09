@@ -12,11 +12,20 @@ import Portfolio from "../portfolioBC/Portfolio"
 
 import Singlepost  from "../blog/singlepost"
 import Servicepage from "../services/Servicepage"
+import ReactGA from 'react-ga';
 const Pages = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+
+  useEffect(()=>{
+    ReactGA.pageview(window.location.pathname);
+  },[]);
+
+  ReactGA.event({
+    
+  })
   
   return (
     <>

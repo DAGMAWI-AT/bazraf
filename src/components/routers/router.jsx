@@ -18,6 +18,8 @@ import EditCars from "../admin/dashboard/EditCars";
 import Uplodcar from "../admin/dashboard/Uplodcar";
 import ManageCars from "../admin/dashboard/ManageCars";
 import ViewCars from "../admin/dashboard/ViewCars";
+import Banner from "../admin/dashboard/banner/Banner";
+import BannerAdd from "../admin/dashboard/banner/BannerAdd";
 
 
 const router = createBrowserRouter([
@@ -76,18 +78,26 @@ const router = createBrowserRouter([
         element: <ManageCars />,
       },
       {
+        path: "/admin/dashboard/managebanner",
+        element: <Banner />,
+      },
+      {
+        path: "/admin/dashboard/uploadbanner",
+        element: <BannerAdd />,
+      },
+      {
         path: "/admin/dashboard/uploadcars",
         element: <Uplodcar />,
       },
       {
         path: "/admin/dashboard/edit-cars/:id",
         element: <EditCars />,
-        loader: ({params})=>fetch(`http://localhost:8000/updatecars/${params.id}`)
+        loader: ({params})=>fetch(`https://bazra.onrender.com/updatecars/${params.id}`)
       },
       {
         path: "/admin/dashboard/viewdetailcars/:id",
         element: <ViewCars />,
-        loader: ({params})=>fetch(`http://localhost:8000/allcars/${params.id}`)
+        loader: ({params})=>fetch(`https://bazra.onrender.com/allcars/${params.id}`)
       },
     ],
   },

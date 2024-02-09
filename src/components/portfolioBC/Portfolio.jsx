@@ -1,8 +1,7 @@
-// components/Portfolio.js
 import React, { useState, useEffect } from 'react';
 import Heading from '../common/Heading';
 import Modal from './Modal'; // Import the Modal component
-import { Card } from 'flowbite-react';
+import ReactGA from 'react-ga';
 
 const Portfolio = () => {
   const [list, setList] = useState([]); // Change initial state to an empty array
@@ -12,7 +11,11 @@ const Portfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:8000/allcars")
+    ReactGA.pageview(window.location.pathname);
+  }, []);
+
+  useEffect(() => {
+    fetch("https://bazra.onrender.com/allcars")
       .then((res) => res.json())
       .then((data) => {
         setCars(data);
@@ -36,6 +39,12 @@ const Portfolio = () => {
   };
 
   const openModal = (item) => {
+    ReactGA.event({
+      category: 'List Item',
+      action: 'Click',
+      label: item.name,
+    });
+
     setSelectedItem(item);
     setIsModalOpen(true);
   };
@@ -48,16 +57,14 @@ const Portfolio = () => {
   return (
     <div className='portf'>
       <article>
-        <div className="container" data-aos="fade-down-right">
-          <Heading title='Bazra Motors' data-aos="fade-up" data-aos-duration="2000" />
+        <div className="container">
+          <Heading title='Bazra Motors' />
           <div className="catButton">
             {category.map((cat) => (
               <button
                 key={cat}
                 className=''
                 onClick={() => filterItems(cat)}
-                data-aos="fade-up"
-                data-aos-duration="2000"
               >
                 {cat}
               </button>
@@ -67,12 +74,12 @@ const Portfolio = () => {
             {list.map((item, i) => (
               <div key={i} className='box' onClick={() => openModal(item)}>
                 <div className="img">
-                  <img src={item.imageUrl} alt="" data-aos="fade-up" data-aos-duration="2000" />
+                  <img src={item.imageUrl} alt="" />
                 </div>
                 <div className="overlay">
-                  <h3 data-aos="fade-down-right">{item.name}</h3>
-                  <h3 data-aos="fade-down-right">{item.category}</h3>
-                  <span data-aos="fade-down-left">{item.description}</span>
+                  <h3>{item.name}</h3>
+                  <h3>{item.category}</h3>
+                  <span>{item.description}</span>
                 </div>
               </div>
             ))}

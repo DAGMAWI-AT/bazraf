@@ -5,7 +5,10 @@ import 'aos/dist/aos.css';
 import video from './video.mp4';
 import Pages from './components/page/Pages';
 import Zendesk from './ZendeskConfig';
+import ReactGa from 'react-ga'; //14.8k (gzipped: 4.9k)
 const ZENDESK_KEY = "b9c1711c-e9a9-4577-80e4-8705aca15977";
+const TRACKING_ID ="UA-299901557-1";
+ReactGa.initialize(TRACKING_ID);
 
 function App() {
   useEffect(() => {

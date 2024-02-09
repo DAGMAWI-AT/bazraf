@@ -38,7 +38,7 @@ function EditCars() {
 console.log(UpdateCar);
 
 
-    fetch(`http://localhost:8000/updatecars/${id}`, {
+    fetch(`https://bazra.onrender.com/updatecars/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

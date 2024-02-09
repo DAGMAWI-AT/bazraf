@@ -11,7 +11,7 @@ function ManageCars() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8000/allcars")
+    fetch("https://bazra.onrender.com/allcars")
       .then((res) => res.json())
       .then((data) => setCars(data));
   }, []);
@@ -34,7 +34,7 @@ function ManageCars() {
     const isConfirmed = window.confirm("Are you sure you want to delete this car?");
 
     if (isConfirmed) {
-      fetch(`http://localhost:8000/deletecar/${id}`, {
+      fetch(`https://bazra.onrender.com/deletecar/${id}`, {
         method: "DELETE",
       })
         .then((res) => {

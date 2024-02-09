@@ -1,12 +1,12 @@
 // Hero.js
 
-import React, { useState, useEffect } from 'react';
-import './hero.css';
-import { Link } from 'react-router-dom';
-import { scroller } from 'react-scroll';
-import Reveal from '../../reveal';
-import { home } from '../../data/Data';
-import Typewriter from 'typewriter-effect';
+import React, { useState, useEffect } from "react";
+import "./hero.css";
+import { Link } from "react-router-dom";
+import { scroller } from "react-scroll";
+import Reveal from "../../reveal";
+import { home } from "../../data/Data";
+import Typewriter from "typewriter-effect";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -27,7 +27,7 @@ const Hero = () => {
   }, [currentSlide]);
 
   const scrollToTarget = () => {
-    scroller.scrollTo('ID1', {
+    scroller.scrollTo("ID1", {
       smooth: true,
       duration: 500,
     });
@@ -51,8 +51,12 @@ const Hero = () => {
   return (
     <div className="hero-section">
       <div className="page-turn">
-        <div className={`page-turn ${door ? 'slide-enter' : ''}`}>
-          <img src={home[currentSlide].cover} alt={`Slide ${currentSlide + 1}`} draggable="false" />
+        <div className={`page-turn ${door ? "slide-enter" : ""}`}>
+          <img
+            src={home[currentSlide].cover}
+            alt={`Slide ${currentSlide + 1}`}
+            draggable="false"
+          />
         </div>
       </div>
 
@@ -72,7 +76,7 @@ const Hero = () => {
         </div>
         <hr />
         <br />
-        <div className="readMore"> 
+        <div className="readMore">
           <Link to="/services" className="primaryBtn" data-aos="fade-up-right">
             <a className="Read">Read More</a>
           </Link>
@@ -83,8 +87,8 @@ const Hero = () => {
         {home.map((_, index) => (
           <div
             key={index}
-            className={`circle ${index === currentSlide ? 'active' : ''} ${
-              index === prevSlide ? 'previous' : ''
+            className={`circle ${index === currentSlide ? "active" : ""} ${
+              index === prevSlide ? "previous" : ""
             }`}
             onClick={() => goToSlide(index)}
           ></div>

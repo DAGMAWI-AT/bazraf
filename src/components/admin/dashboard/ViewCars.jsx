@@ -10,7 +10,7 @@ function ViewCars() {
 
   useEffect(() => {
     // Fetch data for a specific car based on its ID
-    fetch(`http://localhost:8000/allcars/${id}`)
+    fetch(`https://bazra.onrender.com/allcars/${id}`)
       .then(response => response.json())
       .then(data => setCar(data))
       .catch(error => console.error('Error fetching car data:', error));
