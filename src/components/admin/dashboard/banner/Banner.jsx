@@ -99,7 +99,7 @@ function Banner() {
                   <td>{item.title}</td>
                   <td>{item.text}</td>
                   <td>
-                    <img src={item.image_path} alt="" style={{ width: '50px', height: '50px' }} />
+                    <img src={item.imageFile} alt="" style={{ width: '50px', height: '50px' }} />
                   </td>
                   <td>
                     <button onClick={() => handleEdit(item._id)} className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0 ">
