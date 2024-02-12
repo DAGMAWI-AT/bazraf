@@ -34,7 +34,7 @@ function Banner() {
       const isConfirmed = window.confirm("Are you sure you want to delete this car?");
   
       if (isConfirmed) {
-        fetch(`https://bazra.onrender.com/deletecar/${id}`, {
+        fetch(`https://bazra.onrender.com/deletebanner/${id}`, {
           method: "DELETE",
         })
           .then((res) => {
@@ -45,7 +45,7 @@ function Banner() {
           })
           .then((data) => {
             alert("Car is Deleted Successfully");
-            setbanner((prevCars) => prevCars.filter((car) => car._id !== id));
+            setbanner((prevCars) => prevCars.filter((banner) => banner._id !== id));
           })
           .catch((error) => {
             console.error("Error deleting car:", error);
