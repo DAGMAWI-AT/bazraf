@@ -99,7 +99,8 @@ function Banner() {
                   <td>{item.title}</td>
                   <td>{item.text}</td>
                   <td>
-                    <img src={item.imageFile} alt="" style={{ width: '50px', height: '50px' }} />
+                  {/* Display image dynamically */}
+                  <img src={`https://bazra.onrender.com/images/${item.imageFile}`} alt={item.title} style={{ maxWidth: '100px' }} />
                   </td>
                   <td>
                     <button onClick={() => handleEdit(item._id)} className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0 ">
@@ -111,7 +112,6 @@ function Banner() {
                     <button onClick={() => navigate(`/admin/dashboard/viewdetailcars/${item._id}`)} className="bg-blue-600 px-1 py-1 font-semibold hover:bg-blue-700 text-white  hover:bg-sky-600 mr-0">
                     View
                   </button>
-        
                   </td>
                 </tr>
               );

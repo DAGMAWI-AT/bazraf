@@ -1,5 +1,3 @@
-// BannerAdd.jsx
-
 import React, { useState } from 'react';
 import { Button, Label, TextInput } from 'flowbite-react';
 
@@ -8,35 +6,42 @@ function BannerAdd() {
   const [text, setText] = useState('');
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const [error, setError] = useState(null);
 
-  const handleBannerSubmit = (event) => {
+  const handleBannerSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('text', text);
-    formData.append('imageFile', imageFile);
+    try {
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('text', text);
+      formData.append('imageFile', imageFile);
 
-    fetch('https://bazra.onrender.com/addbanner', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          alert('Banner Uploaded Successfully');
-          setTitle('');
-          setText('');
-          setImageFile(null);
-          setImagePreview(null);
-        } else {
-          alert('Error: Unable to upload banner');
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert('An error occurred while uploading the banner');
+      const response = await fetch('http://localhost:8000/addbanner', {
+        method: 'POST',
+        body: formData,
       });
+
+      if (!response.ok) {
+        throw new Error(`Failed to upload banner (status ${response.status})`);
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert('Banner Uploaded Successfully');
+        setTitle('');
+        setText('');
+        setImageFile(null);
+        setImagePreview(null);
+        setError(null);
+      } else {
+        setError('Error: Unable to upload banner');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('An error occurred while uploading the banner');
+    }
   };
 
   const handleImageChange = (event) => {
@@ -114,6 +119,8 @@ function BannerAdd() {
             </div>
           )}
         </div>
+
+        {error && <div className='text-red-500'>{error}</div>}
 
         <Button type='submit' className='mt-5' style={{ color: '#11224893', background: '#11224893' }}>
           Upload Banner
