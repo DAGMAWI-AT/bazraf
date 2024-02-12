@@ -23,7 +23,7 @@ function SideBar() {
         <Sidebar.Items className="toggle-collapse" onClick={toggleCollapse}>
           {isCollapsed ? <HiOutlineMenu /> : <HiMenu />}
         </Sidebar.Items>
-        <Sidebar.Logo as={Link} to="/admin/dashboard" img="../../IMGlogo1.jpg" className='AdminLogo' imgAlt="Flowbite logo">
+        <Sidebar.Logo as={Link} to="/admin/dashboard" img="../../IMGlogo1.jpg" className='AdminLogo' imgAlt="Bazra">
           {isCollapsed ? null : <p>Bazra Motors</p>}  
         </Sidebar.Logo>
 
@@ -42,7 +42,10 @@ function SideBar() {
             <Sidebar.Item as={Link} to="/admin/dashboard/uploadcars" icon={HiOutlineCloudUpload} className="sidebar-item">
               {isCollapsed ? null : <p>Upload Cars</p>}
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard/inbox" icon={HiInbox} className="sidebar-item">
+            <Sidebar.Item as={Link} to="/admin/dashboard/managewhoweare" icon={HiInbox} className="sidebar-item">
+            {isCollapsed ? null : <p>Who Are We</p>}
+          </Sidebar.Item>
+            <Sidebar.Item as={Link} to="/admin/dashboard/managewhoareyou" icon={HiInbox} className="sidebar-item">
               {isCollapsed ? null : <p>Inbox</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/users" icon={HiUser} className="sidebar-item">

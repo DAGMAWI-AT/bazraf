@@ -20,6 +20,10 @@ import ManageCars from "../admin/dashboard/ManageCars";
 import ViewCars from "../admin/dashboard/ViewCars";
 import Banner from "../admin/dashboard/banner/Banner";
 import BannerAdd from "../admin/dashboard/banner/BannerAdd";
+import BannerEdit from "../admin/dashboard/banner/BannerEdit";
+import WhoWeAre from "../admin/dashboard/who_we_are/WhoWeAew";
+import WhoWeAre_Upload from "../admin/dashboard/who_we_are/WhoWeAre_Upload";
+import WhoWeAreEdit from "../admin/dashboard/who_we_are/WhoWeAreEdit";
 
 
 const router = createBrowserRouter([
@@ -86,6 +90,12 @@ const router = createBrowserRouter([
         element: <BannerAdd />,
       },
       {
+        path: "/admin/dashboard/edit-banner/:id",
+        element: <BannerEdit />,
+        loader: ({ params }) => fetch(`http://localhost:8000/updatebanner/${params.id}`) // Use relative path
+      },
+      
+      {
         path: "/admin/dashboard/uploadcars",
         element: <Uplodcar />,
       },
@@ -98,6 +108,21 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/viewdetailcars/:id",
         element: <ViewCars />,
         loader: ({params})=>fetch(`https://bazra.onrender.com/allcars/${params.id}`)
+      },
+
+      {
+        path: "/admin/dashboard/managewhoweare",
+        element: <WhoWeAre />,
+      },
+
+      {
+        path: "/admin/dashboard/uploawhoweare",
+        element: <WhoWeAre_Upload />,
+      },
+       {
+        path: "/admin/dashboard/edit-whoweare/:id",
+        element: <WhoWeAreEdit />,
+        loader: ({params})=>fetch(`http://localhost:8000/updatewhoweare/${params.id}`)
       },
     ],
   },
