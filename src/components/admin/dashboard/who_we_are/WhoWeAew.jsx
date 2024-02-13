@@ -78,7 +78,7 @@ const WhoWeAre = () => {
       <Table className="relative lg:w-[1080px]">
         <thead>
           <tr>
-            <th>Video id</th>
+            <th>id</th>
             <th>Title</th>
             <th>Description</th>
             <th>Video</th>

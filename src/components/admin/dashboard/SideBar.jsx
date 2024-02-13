@@ -45,7 +45,10 @@ function SideBar() {
             <Sidebar.Item as={Link} to="/admin/dashboard/managewhoweare" icon={HiInbox} className="sidebar-item">
             {isCollapsed ? null : <p>Who Are We</p>}
           </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard/managewhoareyou" icon={HiInbox} className="sidebar-item">
+            <Sidebar.Item as={Link} to="/admin/dashboard/managecompanyoverview" icon={HiInbox} className="sidebar-item">
+              {isCollapsed ? null : <p>CompanyOverview</p>}
+            </Sidebar.Item>
+            <Sidebar.Item as={Link} to="/admin/dashboard/managecompanyoverview" icon={HiInbox} className="sidebar-item">
               {isCollapsed ? null : <p>Inbox</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/users" icon={HiUser} className="sidebar-item">

@@ -24,6 +24,9 @@ import BannerEdit from "../admin/dashboard/banner/BannerEdit";
 import WhoWeAre from "../admin/dashboard/who_we_are/WhoWeAew";
 import WhoWeAre_Upload from "../admin/dashboard/who_we_are/WhoWeAre_Upload";
 import WhoWeAreEdit from "../admin/dashboard/who_we_are/WhoWeAreEdit";
+import CompanyOverview from "../admin/dashboard/CompanyOverview/CompanyOverview";
+import UploadOverview from "../admin/dashboard/CompanyOverview/UploadOverview";
+import EditOverview from "../admin/dashboard/CompanyOverview/EditOverview";
 
 
 const router = createBrowserRouter([
@@ -123,6 +126,21 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-whoweare/:id",
         element: <WhoWeAreEdit />,
         loader: ({params})=>fetch(`http://localhost:8000/updatewhoweare/${params.id}`)
+      },
+
+      // company overview path
+      {
+        path: "/admin/dashboard/managecompanyoverview",
+        element: <CompanyOverview />,
+      },
+      {
+        path: "/admin/dashboard/uploadoverview",
+        element: <UploadOverview />,
+      },
+      {
+        path: "/admin/dashboard/edit-overview/:id",
+        element: <EditOverview />,
+        loader: ({params})=>fetch(`http://localhost:8000/bzoverview/${params.id}`)
       },
     ],
   },
