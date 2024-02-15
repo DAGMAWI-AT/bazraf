@@ -27,6 +27,11 @@ import WhoWeAreEdit from "../admin/dashboard/who_we_are/WhoWeAreEdit";
 import CompanyOverview from "../admin/dashboard/CompanyOverview/CompanyOverview";
 import UploadOverview from "../admin/dashboard/CompanyOverview/UploadOverview";
 import EditOverview from "../admin/dashboard/CompanyOverview/EditOverview";
+import ServiceManage from "../admin/dashboard/service/ServiceManage";
+import UploadService from "../admin/dashboard/service/UploadService";
+import SlidCarsGallery from "../admin/dashboard/carGallery/SlidCarsGallery";
+import UploadCarsGallery from "../admin/dashboard/carGallery/UploadCarsGallery";
+import EditGallery from "../admin/dashboard/carGallery/EditGallery";
 
 
 const router = createBrowserRouter([
@@ -141,6 +146,32 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-overview/:id",
         element: <EditOverview />,
         loader: ({params})=>fetch(`http://localhost:8000/bzoverview/${params.id}`)
+      },
+      
+      //service
+      {
+        path: "/admin/dashboard/manageservice",
+        element: <ServiceManage />,
+      },
+      {
+        path: "/admin/dashboard/uploadservice",
+        element: <UploadService />,
+      },
+
+      //slider cars in gallery
+
+      {
+        path: "/admin/dashboard/cargallery_slider",
+        element: <SlidCarsGallery />,
+      },
+      {
+        path: "/admin/dashboard/uploadcargallery_slide",
+        element: <UploadCarsGallery />,
+      },
+      {
+        path: "/admin/dashboard/edit-cargallery_slide/:id",
+        element: <EditGallery />,
+        // loader: ({params})=>fetch(`http://localhost:8000/bzoverview/${params.id}`)
       },
     ],
   },
