@@ -1,13 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {createBrowserRouter,RouterProvider,} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "../../App";
 import Home from "../home/Home";
-import Services from "../services/Servicepage"
+import Services from "../services/Servicepage";
 import About from "../about/About";
 import Blog from "../blog/Blog";
 import Contact from "../contact/contactpage";
-import Dashboard from "../admin/dashboard/Dashboard"
+import Dashboard from "../admin/dashboard/Dashboard";
 import DashboardLayout from "../admin/dashboard/DashboardLayout";
 import Service from "../admin/dashboard/Service";
 import Aboute from "../admin/dashboard/About";
@@ -32,7 +32,10 @@ import UploadService from "../admin/dashboard/service/UploadService";
 import SlidCarsGallery from "../admin/dashboard/carGallery/SlidCarsGallery";
 import UploadCarsGallery from "../admin/dashboard/carGallery/UploadCarsGallery";
 import EditGallery from "../admin/dashboard/carGallery/EditGallery";
-
+import Counters from "../admin/dashboard/counter/Counters";
+import UploadConters from "../admin/dashboard/counter/UploadConters";
+import EditCounter from "../admin/dashboard/counter/EditCounter";
+import Testimoni from "../admin/dashboard/testimoni/Testimoni";
 
 const router = createBrowserRouter([
   {
@@ -100,9 +103,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/edit-banner/:id",
         element: <BannerEdit />,
-        loader: ({ params }) => fetch(`http://localhost:8000/updatebanner/${params.id}`) // Use relative path
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/updatebanner/${params.id}`), // Use relative path
       },
-      
+
       {
         path: "/admin/dashboard/uploadcars",
         element: <Uplodcar />,
@@ -110,12 +114,14 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/edit-cars/:id",
         element: <EditCars />,
-        loader: ({params})=>fetch(`https://bazra.onrender.com/updatecars/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://bazra.onrender.com/updatecars/${params.id}`),
       },
       {
         path: "/admin/dashboard/viewdetailcars/:id",
         element: <ViewCars />,
-        loader: ({params})=>fetch(`https://bazra.onrender.com/allcars/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`https://bazra.onrender.com/allcars/${params.id}`),
       },
 
       {
@@ -127,10 +133,11 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/uploawhoweare",
         element: <WhoWeAre_Upload />,
       },
-       {
+      {
         path: "/admin/dashboard/edit-whoweare/:id",
         element: <WhoWeAreEdit />,
-        loader: ({params})=>fetch(`http://localhost:8000/updatewhoweare/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/updatewhoweare/${params.id}`),
       },
 
       // company overview path
@@ -145,9 +152,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/edit-overview/:id",
         element: <EditOverview />,
-        loader: ({params})=>fetch(`http://localhost:8000/bzoverview/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/bzoverview/${params.id}`),
       },
-      
+
       //service
       {
         path: "/admin/dashboard/manageservice",
@@ -173,9 +181,42 @@ const router = createBrowserRouter([
         element: <EditGallery />,
         // loader: ({params})=>fetch(`http://localhost:8000/bzoverview/${params.id}`)
       },
+
+      // counter to manage
+      //slider cars in gallery
+
+      {
+        path: "/admin/dashboard/counters",
+        element: <Counters />,
+      },
+      {
+        path: "/admin/dashboard/uploadcounters",
+        element: <UploadConters />,
+      },
+      {
+        path: "/admin/dashboard/edit-counters/:id",
+        element: <EditCounter />,
+        //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+      },
+
+
+      //testimoni manage
+
+      {
+        path: "/admin/dashboard/testimoni",
+        element: <Testimoni />,
+      },
+      {
+        path: "/admin/dashboard/uploadcounters",
+        element: <UploadConters />,
+      },
+      {
+        path: "/admin/dashboard/edit-counters/:id",
+        element: <EditCounter />,
+        //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+      },
     ],
   },
 ]);
 
-
-export default router
+export default router;

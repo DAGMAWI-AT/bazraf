@@ -54,11 +54,11 @@ function SideBar() {
             <Sidebar.Item as={Link} to="/admin/dashboard/cargallery_slider" icon={HiUser} className="sidebar-item">
               {isCollapsed ? null : <p>Gallery</p>}
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard/blogs" icon={HiShoppingBag} className="sidebar-item">
-              {isCollapsed ? null : <p>Blogs</p>}
+            <Sidebar.Item as={Link} to="/admin/dashboard/counters" icon={HiShoppingBag} className="sidebar-item">
+              {isCollapsed ? null : <p>Counter</p>}
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/admin/dashboard/signin" icon={HiArrowSmRight} className="sidebar-item">
-              {isCollapsed ? null : <p>Sign In</p>}
+            <Sidebar.Item as={Link} to="/admin/dashboard/testimoni" icon={HiArrowSmRight} className="sidebar-item">
+              {isCollapsed ? null : <p>Testimoni</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/logout" icon={HiLogout} className="sidebar-item">
               {isCollapsed ? null : <p>Log Out</p>}

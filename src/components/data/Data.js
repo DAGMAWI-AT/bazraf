@@ -208,7 +208,7 @@ export const Banservice =[
 
 export const counter =[
   {
-  id:1,
+  id:0,
   icon: <CloudOutlined/>,
   num:900,
   title: "Happy Client",
@@ -216,7 +216,7 @@ export const counter =[
   cover:"../bz1.png",
 },
 {
-  id:2,
+  id:1,
   icon: <CropRotate/>,
   num:900,
   title: "Lada Cars",
@@ -224,7 +224,7 @@ export const counter =[
   cover:"../bz1.png",
 },
 {
-  id:3,
+  id:2,
   icon: <ViewInAr />,
   num:900,
   title: "Employee",
@@ -232,7 +232,7 @@ export const counter =[
   cover:"../bz1.png",
 },
 {
-  id:4,
+  id:3,
   icon: <PieChart/>,
   num:100,
   title: "Sister Company",
