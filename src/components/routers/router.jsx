@@ -36,6 +36,8 @@ import Counters from "../admin/dashboard/counter/Counters";
 import UploadConters from "../admin/dashboard/counter/UploadConters";
 import EditCounter from "../admin/dashboard/counter/EditCounter";
 import Testimoni from "../admin/dashboard/testimoni/Testimoni";
+import UploadTestimoni from "../admin/dashboard/testimoni/UploadTestimoni";
+import EditTestimoni from "../admin/dashboard/testimoni/EditTestimoni";
 
 const router = createBrowserRouter([
   {
@@ -207,12 +209,12 @@ const router = createBrowserRouter([
         element: <Testimoni />,
       },
       {
-        path: "/admin/dashboard/uploadcounters",
-        element: <UploadConters />,
+        path: "/admin/dashboard/uploadtestimoni",
+        element: <UploadTestimoni />,
       },
       {
-        path: "/admin/dashboard/edit-counters/:id",
-        element: <EditCounter />,
+        path: "/admin/dashboard/edit-testimoni/:id",
+        element: <EditTestimoni />,
         //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
       },
     ],

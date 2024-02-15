@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Testimoni() {
   const [selectedId, setSelectedId] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-
+const navigate =useNavigate();
   const testimonialsData = [
     {
         prof: "Founder",
@@ -59,7 +60,7 @@ function Testimoni() {
   ];
 
   const handleEdit = (index) => {
-    console.log(`Edit testimonial at index ${index}`);
+    navigate(`/admin/dashboard/edit-testimoni/${index}`);
   };
 
   const handleDelete = (index) => {
@@ -75,8 +76,8 @@ function Testimoni() {
 
   const handleUpload = () => {
     // Implement your logic for uploading data
-    console.log('Upload Data button clicked');
-  };
+navigate("/admin/dashboard/uploadtestimoni") 
+ };
 
   const handleNext = () => {
     setCurrentPage((prevPage) => Math.min(prevPage + 1, Math.ceil(testimonialsData.length / 5)));
