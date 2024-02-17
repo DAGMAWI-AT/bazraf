@@ -18,7 +18,6 @@ function Banner() {
       .then((res) => res.json())
       .then((data) => setBanner(data));
   }, []);
-
   const filteredBanners = banner.filter((banner) => {
     const searchMatch = banner.text.toLowerCase().includes(searchTerm.toLowerCase());
     const categoryMatch = filterCategory ? banner.title === filterCategory : true;
