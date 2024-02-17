@@ -23,7 +23,6 @@ function Banner() {
     const categoryMatch = filterCategory ? banner.title === filterCategory : true;
     return searchMatch && categoryMatch;
   });
-
   const indexOfLastBanner = currentPage * bannersPerPage;
   const indexOfFirstBanner = indexOfLastBanner - bannersPerPage;
   const currentBanners = filteredBanners.slice(indexOfFirstBanner, indexOfLastBanner);
