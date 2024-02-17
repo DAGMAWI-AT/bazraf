@@ -29,6 +29,9 @@ function ViewCars() {
 
       <div className="car-info">
         <p className="car-info-item"><strong>Name:</strong> {car.name}</p>
+        <p className="car-info-item"><strong>Color:</strong> {car.color}</p>
+        <p className="car-info-item"><strong>Model:</strong> {car.model}</p>
+        <p className="car-info-item"><strong>Engin:</strong> {car.engin}</p>
         <p className="car-info-item"><strong>Category:</strong> {car.category}</p>
         <p className="car-info-item"><strong>Price:</strong> Birr{car.price}</p>
         {/* Add more car details as needed */}

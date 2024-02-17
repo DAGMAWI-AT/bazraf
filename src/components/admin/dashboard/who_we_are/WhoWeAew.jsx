@@ -70,12 +70,14 @@ const WhoWeAre = () => {
       <h2 className="mb-8 text-3xl font-bold text-center" style={{ color: '#2d2e2e' }}>
         Manage Videos
       </h2>
+      <div className="container mx-auto p-4">
+
       <button onClick={handleAddVideo} className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0">
         Add Video
       </button>
 
       {/* Video Table */}
-      <Table className="relative lg:w-[1080px]">
+      <Table className="relative table-auto w-full mt-4 text-black">
         <thead>
           <tr>
             <th>id</th>
@@ -113,7 +115,7 @@ const WhoWeAre = () => {
           ))}
         </tbody>
       </Table>
-
+</div>
       {/* Modal for viewing video details */}
       <Modal
       isOpen={modalIsOpen}

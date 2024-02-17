@@ -49,7 +49,7 @@ const UploadOverview = () => {
 
   return (
     <div className="max-w-5xl mx-auto mt-4">
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-md p-8">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-md p-8 text-black">
         <div className="grid grid-cols-2 gap-4 mt-4">
           <div>
             <label htmlFor="hTitle" className="block text-sm font-medium text-gray-600">

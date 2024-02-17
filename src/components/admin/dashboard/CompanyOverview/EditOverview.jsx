@@ -58,7 +58,7 @@ function EditOverview() {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-3xl font-bold mb-4">Edit Overview</h2>
-      <form onSubmit={handleSubmit} className="flex flex-wrap -mx-4">
+      <form onSubmit={handleSubmit} className="flex flex-wrap -mx-4 text-black">
         <div className="mb-4 w-full lg:w-1/2 px-4">
           <label htmlFor="hTitle" className="block text-sm font-medium text-gray-600">
             Heading Title:

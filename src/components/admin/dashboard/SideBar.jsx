@@ -33,20 +33,20 @@ function SideBar() {
               {isCollapsed ? null : <p>Dashboard</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/managebanner" icon={HiViewBoards} className="sidebar-item">
-              {isCollapsed ? null : <p>Manage Banner</p>}
+              {isCollapsed ? null : <p>Banner</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/managecars" icon={HiViewBoards} className="sidebar-item">
-              {isCollapsed ? null : <p>Manage Cars</p>}
+              {isCollapsed ? null : <p>Portfolio</p>}
             </Sidebar.Item>
 
             <Sidebar.Item as={Link} to="/admin/dashboard/uploadcars" icon={HiOutlineCloudUpload} className="sidebar-item">
-              {isCollapsed ? null : <p>Upload Cars</p>}
+              {isCollapsed ? null : <p>Upload Portfolio</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/managewhoweare" icon={HiInbox} className="sidebar-item">
             {isCollapsed ? null : <p>Who Are We</p>}
           </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/managecompanyoverview" icon={HiInbox} className="sidebar-item">
-              {isCollapsed ? null : <p>CompanyOverview</p>}
+              {isCollapsed ? null : <p>Overview</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/manageservice" icon={HiInbox} className="sidebar-item">
               {isCollapsed ? null : <p>Services</p>}
@@ -60,13 +60,19 @@ function SideBar() {
             <Sidebar.Item as={Link} to="/admin/dashboard/testimoni" icon={HiArrowSmRight} className="sidebar-item">
               {isCollapsed ? null : <p>Testimoni</p>}
             </Sidebar.Item>
-            <Sidebar.Item as={Link} to="/logout" icon={HiLogout} className="sidebar-item">
-              {isCollapsed ? null : <p>Log Out</p>}
+            <Sidebar.Item as={Link} to="/admin/dashboard/footers" icon={HiLogout} className="sidebar-item">
+              {isCollapsed ? null : <p>Footers</p>}
             </Sidebar.Item>
+            <Sidebar.Item as={Link} to="/admin/dashboard/ourservice" icon={HiChartPie} className="sidebar-item">
+              {isCollapsed ? null : <p>Ourservice</p>}
+            </Sidebar.Item>
+            <Sidebar.Item as={Link} to="/admin/dashboard/product" icon={HiChartPie} className="sidebar-item">
+            {isCollapsed ? null : <p>Products</p>}
+          </Sidebar.Item>
           </Sidebar.ItemGroup>
 
           <Sidebar.ItemGroup>
-            <Sidebar.Item as={Link} to="/admin/dashboard/createuser" icon={HiChartPie} className="sidebar-item">
+            <Sidebar.Item as={Link} to="/admin/dashboard/product" icon={HiChartPie} className="sidebar-item">
               {isCollapsed ? null : <p>Create User</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/settings" icon={HiViewBoards} className="sidebar-item">

@@ -22,6 +22,7 @@
   --sliver: #bac8d3;
 }
 
+
 body {
   background-color: var(--headingColor);
   color: var(--white);
@@ -50,6 +51,8 @@ p {
   margin: 20px 0;
   margin-left: 4px;
 }
+
+
 
 /* h2,
 h3,

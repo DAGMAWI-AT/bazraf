@@ -68,7 +68,7 @@ function BannerAdd() {
         Upload Banner
       </h2>
 
-      <form onSubmit={handleBannerSubmit} className='flex lg:w-[1080px] flex-col flex-wrap gap-4'>
+      <form onSubmit={handleBannerSubmit} className="bg-white shadow-md rounded-md p-8">
         <div className='flex gap-8'>
           <div className='lg:w-1/2'>
             <div className='mb-2 block'>
@@ -122,9 +122,9 @@ function BannerAdd() {
 
         {error && <div className='text-red-500'>{error}</div>}
 
-        <Button type='submit' className='mt-5' style={{ color: '#11224893', background: '#11224893' }}>
-          Upload Banner
-        </Button>
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md">
+          Upload
+        </button>
       </form>
     </div>
   );

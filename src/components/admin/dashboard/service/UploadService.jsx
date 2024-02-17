@@ -103,7 +103,7 @@ const UploadService = () => {
         Add service
       </h2>
     <div className="max-w-5xl mx-auto mt-4">
-      <form encType="multipart/form-data" onSubmit={handleFormSubmit} className="bg-white shadow-md rounded-md p-8">
+      <form encType="multipart/form-data" onSubmit={handleFormSubmit} className="bg-white shadow-md rounded-md p-8 text-black">
       
         <div className="flex gap-8">
           <div className="lg:w-1/2">

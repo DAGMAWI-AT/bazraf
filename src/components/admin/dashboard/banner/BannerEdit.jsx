@@ -45,7 +45,7 @@ function BannerEdit() {
         Update Banner
       </h2>
 
-      <form onSubmit={handleBannerUpdate} className="flex lg:w-[1080px] flex-col flex-wrap gap-4" encType="multipart/form-data">
+      <form onSubmit={handleBannerUpdate} className="bg-white shadow-md rounded-md p-8" encType="multipart/form-data">
         <div className="flex gap-8">
           <div className="lg:w-1/2">
             <div className="mb-2 block">

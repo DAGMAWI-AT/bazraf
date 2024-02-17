@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Footers = () => {
   const [footerData, setFooterData] = useState([
@@ -6,10 +7,11 @@ const Footers = () => {
     { id: 2, title: 'Footer 2' },
     // Add more footer data as needed
   ]);
+  const navigate = useNavigate();
 
   const handleEdit = (id) => {
     // Implement your edit logic here
-    console.log(`Edit footer with ID: ${id}`);
+    navigate(`/admin/dashboard/edit-footers/${id}`);
   };
 
   const handleDelete = (id) => {
@@ -23,26 +25,37 @@ const Footers = () => {
     }
   };
 
+  const handleUpload = () => {
+    navigate("/admin/dashboard/uploadfooters");
+  };
+
   return (
-    <div>
-      <table className="footer-table">
+    <div className="container mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4">Footer Management</h2>
+      <button
+        onClick={handleUpload}
+        className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
+      >
+        Upload
+      </button>
+      <table className="table-auto w-full mt-4 text-black">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Actions</th>
+            <th className="py-2 px-4 border-b">ID</th>
+            <th className="py-2 px-4 border-b">Title</th>
+            <th className="py-2 px-4 border-b">Actions</th>
           </tr>
         </thead>
         <tbody>
           {footerData.map((item) => (
             <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.title}</td>
-              <td>
-                <button onClick={() => handleEdit(item.id)} className="editBtn">
+              <td className="py-2 px-4 border-b">{item.id}</td>
+              <td className="py-2 px-4 border-b">{item.title}</td>
+              <td className="py-2 px-4 border-b">
+                <button onClick={() => handleEdit(item.id)} className="bg-blue-500 text-white px-2 py-1 mr-2 rounded">
                   Edit
                 </button>
-                <button onClick={() => handleDelete(item.id)} className="deleteBtn">
+                <button onClick={() => handleDelete(item.id)} className="bg-red-500 text-white px-2 py-1 rounded">
                   Delete
                 </button>
               </td>

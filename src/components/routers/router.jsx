@@ -38,6 +38,15 @@ import EditCounter from "../admin/dashboard/counter/EditCounter";
 import Testimoni from "../admin/dashboard/testimoni/Testimoni";
 import UploadTestimoni from "../admin/dashboard/testimoni/UploadTestimoni";
 import EditTestimoni from "../admin/dashboard/testimoni/EditTestimoni";
+import Footers from "../admin/dashboard/footers/Footers";
+import UploadFooters from "../admin/dashboard/footers/UploadFooters";
+import EditFooters from "../admin/dashboard/footers/EditFooters";
+import Ourservice from "../admin/dashboard/ourservice/Ourservice";
+import UploadOurservice from "../admin/dashboard/ourservice/UploadOurservice";
+import EditOurservice from "../admin/dashboard/ourservice/EditOurservice";
+import Product from "../admin/dashboard/products/Product";
+import UploadProduct from "../admin/dashboard/products/UploadProduct";
+import EditProduct from "../admin/dashboard/products/EditProduct";
 
 const router = createBrowserRouter([
   {
@@ -215,6 +224,55 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/edit-testimoni/:id",
         element: <EditTestimoni />,
+        //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+      },
+
+      //footer manager
+
+       //testimoni manage
+
+       {
+        path: "/admin/dashboard/footers",
+        element: <Footers />,
+      },
+      {
+        path: "/admin/dashboard/uploadfooters",
+        element: <UploadFooters />,
+      },
+      {
+        path: "/admin/dashboard/edit-footers/:id",
+        element: <EditFooters />,
+        //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+      },
+
+      //our service description and video
+      {
+        path: "/admin/dashboard/ourservice",
+        element: <Ourservice />,
+      },
+      {
+        path: "/admin/dashboard/uploadourservice",
+        element: <UploadOurservice />,
+      },
+      {
+        path: "/admin/dashboard/edit-ourservice/:id",
+        element: <EditOurservice />,
+        //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+      },
+
+      //service product 
+
+      {
+        path: "/admin/dashboard/product",
+        element: <Product />,
+      },
+      {
+        path: "/admin/dashboard/uploadproduct",
+        element: <UploadProduct />,
+      },
+      {
+        path: "/admin/dashboard/edit-product/:id",
+        element: <EditProduct />,
         //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
       },
     ],

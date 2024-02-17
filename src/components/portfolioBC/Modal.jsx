@@ -24,6 +24,12 @@ const Modal = ({ item, onClose }) => {
                 <strong>Category:</strong> {item.category}
               </p>
               <p>
+              <strong>Color:</strong> {item.model}
+            </p>
+            <p>
+              <strong>Engin:</strong> {item.model}
+            </p>
+              <p>
                 <strong>Description:</strong> {item.description}
               </p>
               {/* Add any other details you want to display */}

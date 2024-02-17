@@ -117,11 +117,13 @@ function ManageCars() {
 
       {/* Pagination Controls */}
       <div className="flex justify-between mt-4">
-        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}             className="bg-blue-500 text-white px-2 py-1"
+        >
           Previous
         </button>
         <span>{currentPage}</span>
-        <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastCar >= filteredCars.length}>
+        <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastCar >= filteredCars.length}             className="bg-blue-500 text-white px-2 py-1"
+        >
           Next
         </button>
       </div>
