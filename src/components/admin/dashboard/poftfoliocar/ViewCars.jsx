@@ -1,7 +1,7 @@
 // Import necessary dependencies
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './admin.css'
+import '../admin.css'
 // Other imports...
 
 function ViewCars() {
