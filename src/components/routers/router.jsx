@@ -9,10 +9,7 @@ import Blog from "../blog/Blog";
 import Contact from "../contact/contactpage";
 import Dashboard from "../admin/dashboard/Dashboard";
 import DashboardLayout from "../admin/dashboard/DashboardLayout";
-import Service from "../admin/dashboard/Service";
-import Aboute from "../admin/dashboard/About";
-import Contacts from "../admin/dashboard/Contact";
-import Blogs from "../admin/dashboard/BlogsTestimony";
+
 import Cars from "../admin/dashboard/Cars";
 import EditCars from "../admin/dashboard/EditCars";
 import Uplodcar from "../admin/dashboard/Uplodcar";
@@ -83,22 +80,22 @@ const router = createBrowserRouter([
         path: "/admin/dashboard",
         element: <Dashboard />,
       },
-      {
-        path: "/admin/dashboard/servicescontent",
-        element: <Service />,
-      },
-      {
-        path: "/admin/dashboard/aboutcontent",
-        element: <Aboute />,
-      },
-      {
-        path: "/admin/dashboard/blogcontent",
-        element: <Blogs />,
-      },
-      {
-        path: "/admin/dashboard/contactcontent",
-        element: <Contacts />,
-      },
+      // {
+      //   path: "/admin/dashboard/servicescontent",
+      //   element: <Service />,
+      // },
+      // {
+      //   path: "/admin/dashboard/aboutcontent",
+      //   element: <Aboute />,
+      // },
+      // {
+      //   path: "/admin/dashboard/blogcontent",
+      //   element: <Blogs />,
+      // },
+      // {
+      //   path: "/admin/dashboard/contactcontent",
+      //   element: <Contacts />,
+      // },
       {
         path: "/admin/dashboard/managecars",
         element: <ManageCars />,
