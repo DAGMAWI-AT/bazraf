@@ -307,7 +307,8 @@ export const contact = [
   },
   {
     icon: <a><MdEmail /><a href="mailto:amaredagmawi1@gmail.com" target="_blank" rel="noopener noreferrer"></a></a>,
-    text: <a><a href="mailto:amaredagmawi1@gmail.com" target="_blank" rel="noopener noreferrer">amaredagmawi1@gmail.com</a></a>,
+    text:[{ list: <a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> Email</a>  </a>},
+    { list: <a><i><Facebook/></i> <a href="https://www.facebook.com"  target="_blank">Facebook</a>  </a> },]
   },
 ];
 
@@ -463,7 +464,7 @@ export const list = [
 
 export const footer = [
   { 
-  
+   title: "",
    text: [
     { list: <Link to="/"><a href="/"><b>Home</b></a></Link> }, 
     { list:<Link to="/services" > <a href="/services"><b>Service</b></a></Link>}, 
@@ -473,7 +474,7 @@ export const footer = [
   ],
  },
   {
-   
+    title: "Social",
     text: [
       { list: <a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> Email</a>  </a>},
       { list: <a><i><Facebook/></i> <a href="https://www.facebook.com"  target="_blank">Facebook</a>  </a> },
@@ -483,14 +484,14 @@ export const footer = [
     ],
   },
   {
-    
+    title: "Location",
     text: [ 
       { list:<a><a href="https://maps.google.com?q=Friendship+Business+Center,+Airport+Rd,+Addis" target="_blank" rel="noopener noreferrer"><b><i><AddLocationAltOutlined/> </i>Location</b> Friendship Business Center, Airport Rd, Ethiopia</a></a>}, 
       { list:  <a><b><i><Public/></i>Office no: </b> 105</a>}, 
       { list:  <a><b><i><Public/></i>floor no: </b> 5 </a>}],
   },
   {
-    
+    title: "Call Us",
     text:[ 
       { list:  <a> <i><PhoneIphone/></i><b>Receprion </b> 0985187059</a>}, 
       { list: <a><b><i><PhoneIphone/></i>Pepole</b> 09090909</a> },
@@ -503,17 +504,18 @@ export const footer = [
 
 export const footers = [
   { 
-  
+   title:"hello",
    text: [
     { list: <Link to="/"><a href="/"><b>Home</b></a></Link> }, 
     { list:<Link to="/services" > <a href="/services"><b>Service</b></a></Link>}, 
     { list: <Link to="/about" > <a href="/about"><b>About Us</b></a></Link>}, 
     { list: <Link to="/blog" ><a href="/blog"><b>Blogs</b></a></Link>  },
     { list: <Link to="/contactpage" ><a href="/contactpage"><b>Contacts</b></a></Link> },
+    
   ],
  },
   {
-   
+    title: "Social",
     social: [
       { list: <a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> Email</a>  </a>},
       { list: <a><i><Facebook/></i> <a href="https://www.facebook.com"  target="_blank">Facebook</a>  </a> },
@@ -521,23 +523,28 @@ export const footers = [
       { list: <a><i><Instagram/></i> <a href="https://www.instagram.com"  target="_blank">Instagram</a>  </a> },
       { list: <a><i><FontAwesomeIcon icon={faLinkedin} /></i> <a href="https://www.linkedin.com/in/dagmawi-ama-b79405210"  target="_blank">Linkdin</a>  </a> }, 
     ],
+    email:<a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> <i><EmailOutlined/></i></a></a>,
+    facebook:<a href="https://www.facebook.com"  target="_blank"><i><Facebook/></i> Facebook</a>,
+    x:<a><i><FontAwesomeIcon icon={faXTwitter} /></i> <a href="https://www.twitter.com"  target="_blank"> X-Media</a>  </a>,
+    instagram:<a><i><Instagram/></i> <a href="https://www.instagram.com"  target="_blank">Instagram</a>  </a>,
+    linkedin:<a><i><FontAwesomeIcon icon={faLinkedin} /></i> <a href="https://www.linkedin.com/in/dagmawi-ama-b79405210"  target="_blank">Linkdin</a>  </a>
   },
-  {
-    
-    location: [ 
-      { list:<a><a href="https://maps.google.com?q=Friendship+Business+Center,+Airport+Rd,+Addis" target="_blank" rel="noopener noreferrer"><b><i><AddLocationAltOutlined/> </i>Location</b> Friendship Business Center, Airport Rd, Ethiopia</a></a>}, 
-      { list:  <a><b><i><Public/></i>Office no: </b> 105</a>}, 
-      { list:  <a><b><i><Public/></i>floor no: </b> 5 </a>}
-    ],
-  },
-  {
-    
-    phoneNO:[ 
-      { list:  <a> <i><PhoneIphone/></i><b>Receprion </b> 0985187059</a>}, 
-      { list: <a><b><i><PhoneIphone/></i>Pepole</b> 09090909</a> },
-      { list: <a><b><i><PhoneIphone/></i>Sales</b> 09090909</a> }
-    ],
-  },
+  // {
+  //   title: "Location",
+  //   location: [ 
+  //     { list:<a><a href="https://maps.google.com?q=Friendship+Business+Center,+Airport+Rd,+Addis" target="_blank" rel="noopener noreferrer"><b><i><AddLocationAltOutlined/> </i>Location</b> Friendship Business Center, Airport Rd, Ethiopia</a></a>}, 
+  //     { list:  <a><b><i><Public/></i>Office no: </b> 105</a>}, 
+  //     { list:  <a><b><i><Public/></i>floor no: </b> 5 </a>}
+  //   ],
+  // },
+  // {
+  //   title: "Call Us",
+  //   phoneNO:[ 
+  //     { list:  <a> <i><PhoneIphone/></i><b>Receprion </b> 0985187059</a>}, 
+  //     { list: <a><b><i><PhoneIphone/></i>Pepole</b> 09090909</a> },
+  //     { list: <a><b><i><PhoneIphone/></i>Sales</b> 09090909</a> }
+  //   ],
+  // },
  
 
 ]
@@ -698,8 +705,9 @@ export const serviceData = [
 ];
 
 
-export const Map=[
-
+export const Map=[{
+text:[{
+  list:<a><a href="https://maps.google.com?q=Friendship+Business+Center,+Airport+Rd,+Addis" target="_blank" rel="noopener noreferrer"><b><i><AddLocationAltOutlined/> </i>Location</b> Friendship Business Center, Airport Rd, Ethiopia</a></a>},],}
 ]
 
 export const products = [

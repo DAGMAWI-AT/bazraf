@@ -1,5 +1,5 @@
 import React from "react";
-import { footer } from "../../data/Data";
+import { footer, footers } from "../../data/Data";
 import "./footer.css";
 const Footer = () => {
   return (
@@ -32,6 +32,7 @@ const Footer = () => {
                     {item.text.map((items) => (
                       <li className="box">{items.list} </li>
                     ))}
+                    
                   </ul>
                 </div>
               ))}

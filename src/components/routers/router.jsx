@@ -33,6 +33,7 @@ import Testimoni from "../admin/dashboard/testimoni/Testimoni";
 import UploadTestimoni from "../admin/dashboard/testimoni/UploadTestimoni";
 import EditTestimoni from "../admin/dashboard/testimoni/EditTestimoni";
 import Footers from "../admin/dashboard/footers/Footers";
+
 import UploadFooters from "../admin/dashboard/footers/UploadFooters";
 import EditFooters from "../admin/dashboard/footers/EditFooters";
 import Ourservice from "../admin/dashboard/ourservice/Ourservice";
@@ -42,6 +43,7 @@ import Product from "../admin/dashboard/products/Product";
 import UploadProduct from "../admin/dashboard/products/UploadProduct";
 import EditProduct from "../admin/dashboard/products/EditProduct";
 import Contacts from "../admin/dashboard/contacts/Contacts";
+import Testfoter from "../admin/dashboard/footers/Testfoter";
 
 const router = createBrowserRouter([
   {
@@ -237,6 +239,11 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/edit-footers/:id",
         element: <EditFooters />,
+        //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+      },
+      {
+        path: "/admin/dashboard/edit-test/:id",
+        element: <Testfoter />,
         //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
       },
 

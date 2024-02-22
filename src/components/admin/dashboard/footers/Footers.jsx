@@ -11,7 +11,7 @@ const Footers = () => {
 
   const handleEdit = (id) => {
     // Implement your edit logic here
-    navigate(`/admin/dashboard/edit-footers/${id}`);
+    navigate(`/admin/dashboard/edit-test/${id}`);
   };
 
   const handleDelete = (id) => {

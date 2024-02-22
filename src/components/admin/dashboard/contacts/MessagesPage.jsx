@@ -95,9 +95,10 @@ const MessagesPage = () => {
 
   return (
     <div className="message">
-      <h1 className="header-text">Messages</h1>
-      <table className="message-table">
-        <thead>
+      <h1 className="text-center">Messages</h1>
+      <div className="container mx-auto p-4">
+      <table className="table-auto w-full mt-4 text-black bg-white">
+      <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
@@ -116,7 +117,7 @@ const MessagesPage = () => {
           ))}
         </tbody>
       </table>
-
+      </div>
       {/* Modal for displaying message content */}
       <Modal
         isOpen={modalIsOpen}

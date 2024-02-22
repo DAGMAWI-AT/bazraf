@@ -69,7 +69,7 @@ const Contacts = () => {
     isEditing: false,
   });
   const [email, setEmail] = useState({
-    text: contact[2].text,
+    text: contact[2].text[1].list, // Access the first value from the "text" array
     to: contact[2].to,
     isEditing: false,
   });
