@@ -25,7 +25,7 @@
 
 body {
   background-color: var(--headingColor);
-  color: var(--white);
+  /* color: var(--white); */
   font-family: "Playfair", Playfair;
 }
 

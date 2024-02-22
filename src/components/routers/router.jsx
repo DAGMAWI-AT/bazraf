@@ -41,6 +41,7 @@ import EditOurservice from "../admin/dashboard/ourservice/EditOurservice";
 import Product from "../admin/dashboard/products/Product";
 import UploadProduct from "../admin/dashboard/products/UploadProduct";
 import EditProduct from "../admin/dashboard/products/EditProduct";
+import Contacts from "../admin/dashboard/contacts/Contacts";
 
 const router = createBrowserRouter([
   {
@@ -269,6 +270,24 @@ const router = createBrowserRouter([
         element: <EditProduct />,
         //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
       },
+
+//// contacts//////
+
+            //service product 
+
+            {
+              path: "/admin/dashboard/contacts",
+              element: <Contacts />,
+            },
+            {
+              path: "/admin/dashboard/uploadcontacts",
+              element: <UploadProduct />,
+            },
+            {
+              path: "/admin/dashboard/edit-contacts/:id",
+              element: <EditProduct />,
+              //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+            },
     ],
   },
 ]);

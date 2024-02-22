@@ -463,25 +463,84 @@ export const list = [
 
 export const footer = [
   { 
-   text: [{ list: <Link to="/"><a href="/"><b>Home</b></a></Link> }, { list:<Link to="/services" > <a href="/services"><b>Service</b></a></Link>}, { list: <Link to="/about" > <a href="/about"><b>About Us</b></a></Link>}, { list: <Link to="/blog" ><a href="/blog"><b>Blogs</b></a></Link>  },{ list: <Link to="/contactpage" ><a href="/contactpage"><b>Contacts</b></a></Link> },],
+  
+   text: [
+    { list: <Link to="/"><a href="/"><b>Home</b></a></Link> }, 
+    { list:<Link to="/services" > <a href="/services"><b>Service</b></a></Link>}, 
+    { list: <Link to="/about" > <a href="/about"><b>About Us</b></a></Link>}, 
+    { list: <Link to="/blog" ><a href="/blog"><b>Blogs</b></a></Link>  },
+    { list: <Link to="/contactpage" ><a href="/contactpage"><b>Contacts</b></a></Link> },
+  ],
  },
   {
    
-    text: [{ list: <a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> Email</a>  </a>},{ list: <a><i><Facebook/></i> <a href="https://www.facebook.com"  target="_blank">Facebook</a>  </a> }, { list: <a><i><FontAwesomeIcon icon={faXTwitter} /></i> <a href="https://www.twitter.com"  target="_blank"> Twitter</a>  </a> }, { list: <a><i><Instagram/></i> <a href="https://www.instagram.com"  target="_blank">Instagram</a>  </a> },{ list: <a><i><FontAwesomeIcon icon={faLinkedin} /></i> <a href="https://www.linkedin.com/in/dagmawi-ama-b79405210"  target="_blank">Linkdin</a>  </a> }, ],
+    text: [
+      { list: <a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> Email</a>  </a>},
+      { list: <a><i><Facebook/></i> <a href="https://www.facebook.com"  target="_blank">Facebook</a>  </a> },
+      { list: <a><i><FontAwesomeIcon icon={faXTwitter} /></i> <a href="https://www.twitter.com"  target="_blank"> Twitter</a>  </a> }, 
+      { list: <a><i><Instagram/></i> <a href="https://www.instagram.com"  target="_blank">Instagram</a>  </a> },
+      { list: <a><i><FontAwesomeIcon icon={faLinkedin} /></i> <a href="https://www.linkedin.com/in/dagmawi-ama-b79405210"  target="_blank">Linkdin</a>  </a> }, 
+    ],
   },
   {
     
-    text: [ { list:<a><a href="https://maps.google.com?q=Friendship+Business+Center,+Airport+Rd,+Addis" target="_blank" rel="noopener noreferrer"><b><i><AddLocationAltOutlined/> </i>Location</b> Friendship Business Center, Airport Rd, Ethiopia</a></a>}, { list:  <a><b><i><Public/></i>Office no: </b> 105</a>}, { list:  <a><b><i><Public/></i>floor no: </b> 5 </a>}],
+    text: [ 
+      { list:<a><a href="https://maps.google.com?q=Friendship+Business+Center,+Airport+Rd,+Addis" target="_blank" rel="noopener noreferrer"><b><i><AddLocationAltOutlined/> </i>Location</b> Friendship Business Center, Airport Rd, Ethiopia</a></a>}, 
+      { list:  <a><b><i><Public/></i>Office no: </b> 105</a>}, 
+      { list:  <a><b><i><Public/></i>floor no: </b> 5 </a>}],
   },
   {
     
-    text:[ { list:  <a> <i><PhoneIphone/></i><b>Receprion </b> 0985187059</a>}, { list: <a><b><i><PhoneIphone/></i>Pepole</b> 09090909</a> },{ list: <a><b><i><PhoneIphone/></i>Sales</b> 09090909</a> }],
+    text:[ 
+      { list:  <a> <i><PhoneIphone/></i><b>Receprion </b> 0985187059</a>}, 
+      { list: <a><b><i><PhoneIphone/></i>Pepole</b> 09090909</a> },
+      { list: <a><b><i><PhoneIphone/></i>Sales</b> 09090909</a> }
+    ],
   },
  
 
 ]
 
+export const footers = [
+  { 
+  
+   text: [
+    { list: <Link to="/"><a href="/"><b>Home</b></a></Link> }, 
+    { list:<Link to="/services" > <a href="/services"><b>Service</b></a></Link>}, 
+    { list: <Link to="/about" > <a href="/about"><b>About Us</b></a></Link>}, 
+    { list: <Link to="/blog" ><a href="/blog"><b>Blogs</b></a></Link>  },
+    { list: <Link to="/contactpage" ><a href="/contactpage"><b>Contacts</b></a></Link> },
+  ],
+ },
+  {
+   
+    social: [
+      { list: <a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> Email</a>  </a>},
+      { list: <a><i><Facebook/></i> <a href="https://www.facebook.com"  target="_blank">Facebook</a>  </a> },
+      { list: <a><i><FontAwesomeIcon icon={faXTwitter} /></i> <a href="https://www.twitter.com"  target="_blank"> Twitter</a>  </a> }, 
+      { list: <a><i><Instagram/></i> <a href="https://www.instagram.com"  target="_blank">Instagram</a>  </a> },
+      { list: <a><i><FontAwesomeIcon icon={faLinkedin} /></i> <a href="https://www.linkedin.com/in/dagmawi-ama-b79405210"  target="_blank">Linkdin</a>  </a> }, 
+    ],
+  },
+  {
+    
+    location: [ 
+      { list:<a><a href="https://maps.google.com?q=Friendship+Business+Center,+Airport+Rd,+Addis" target="_blank" rel="noopener noreferrer"><b><i><AddLocationAltOutlined/> </i>Location</b> Friendship Business Center, Airport Rd, Ethiopia</a></a>}, 
+      { list:  <a><b><i><Public/></i>Office no: </b> 105</a>}, 
+      { list:  <a><b><i><Public/></i>floor no: </b> 5 </a>}
+    ],
+  },
+  {
+    
+    phoneNO:[ 
+      { list:  <a> <i><PhoneIphone/></i><b>Receprion </b> 0985187059</a>}, 
+      { list: <a><b><i><PhoneIphone/></i>Pepole</b> 09090909</a> },
+      { list: <a><b><i><PhoneIphone/></i>Sales</b> 09090909</a> }
+    ],
+  },
+ 
 
+]
 export const testimonials = [
   {
     prof: "Founder",
@@ -639,7 +698,9 @@ export const serviceData = [
 ];
 
 
+export const Map=[
 
+]
 
 export const products = [
     

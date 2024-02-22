@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { contact, Map } from "../../data/Data";
-import "./Board.css";
+import { contact, Map } from "../../../data/Data";
+// import "./Board.css";
 import MessagesPage from "./MessagesPage";
 
 // EditContactModal component for editing contact information
@@ -160,9 +160,11 @@ const Contacts = () => {
   };
 
   return (
-    <div className="contact-admin" style={{ fontSize: "16px" }}>
-      <h1 className="header-text">Contact Info</h1>
-      <table className="contact-table">
+    <div >
+      <h1 className="text-center">Contact Info</h1>
+      <div className="container mx-auto p-4">
+
+      <table className="table-auto w-full mt-4 text-black">
         <thead>
           <tr>
             <th>Contact Type</th>
@@ -197,12 +199,12 @@ const Contacts = () => {
                   onCancel={() => handleCancel("location")}
                 />
               ) : (
-                <span>{location.to}</span>
+                <span>{location.link}</span>
               )}
             </td>
             {!location.isEditing && (
               <td>
-                <button onClick={() => handleEdit("location")}>Edit</button>
+                <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("location")}>Edit</button>
               </td>
             )}
           </tr>
@@ -232,7 +234,7 @@ const Contacts = () => {
             </td>
             {!phone.isEditing && (
               <td>
-                <button onClick={() => handleEdit("phone")}>Edit</button>
+                <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("phone")}>Edit</button>
               </td>
             )}
           </tr>
@@ -262,12 +264,13 @@ const Contacts = () => {
             </td>
             {!email.isEditing && (
               <td>
-                <button onClick={() => handleEdit("email")}>Edit</button>
+                <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("email")}>Edit</button>
               </td>
             )}
           </tr>
         </tbody>
       </table>
+      </div>
       <MessagesPage />
       <div className="map-admin">
         <h1 className="header-text">Map link</h1>
@@ -281,7 +284,7 @@ const Contacts = () => {
           <span className="Map-span">{map.text}</span>
         )}
         {!map.isEditing && (
-          <button onClick={() => handleEdit("map")}>Edit</button>
+          <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("map")}>Edit</button>
         )}
       </div>
     </div>

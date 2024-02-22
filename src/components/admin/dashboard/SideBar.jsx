@@ -69,10 +69,13 @@ function SideBar() {
             <Sidebar.Item as={Link} to="/admin/dashboard/product" icon={HiChartPie} className="sidebar-item">
             {isCollapsed ? null : <p>Products</p>}
           </Sidebar.Item>
+          <Sidebar.Item as={Link} to="/admin/dashboard/contacts" icon={HiChartPie} className="sidebar-item">
+          {isCollapsed ? null : <p>Contacts</p>}
+        </Sidebar.Item>          
           </Sidebar.ItemGroup>
 
           <Sidebar.ItemGroup>
-            <Sidebar.Item as={Link} to="/admin/dashboard/product" icon={HiChartPie} className="sidebar-item">
+            <Sidebar.Item as={Link} to="/admin/dashboard/contacts" icon={HiChartPie} className="sidebar-item">
               {isCollapsed ? null : <p>Create User</p>}
             </Sidebar.Item>
             <Sidebar.Item as={Link} to="/admin/dashboard/settings" icon={HiViewBoards} className="sidebar-item">
