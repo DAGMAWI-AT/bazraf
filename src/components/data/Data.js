@@ -307,8 +307,8 @@ export const contact = [
   },
   {
     icon: <a><MdEmail /><a href="mailto:amaredagmawi1@gmail.com" target="_blank" rel="noopener noreferrer"></a></a>,
-    text:[{ list: <a><i><EmailOutlined/></i> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> Email</a>  </a>},
-    { list: <a><i><Facebook/></i> <a href="https://www.facebook.com"  target="_blank">Facebook</a>  </a> },]
+    text: <a> <a href="mailto:amaredagmawi1@gmail.com/"  target="_blank"> amaredagmawi1@gmail.com</a>  </a>,
+
   },
 ];
 
