@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { postData } from "../../../data/Data";
+import { useNavigate } from "react-router-dom";
 
 const Blogs = () => {
   const itemsPerPage = 5;
@@ -12,26 +13,31 @@ const Blogs = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = tableData.slice(indexOfFirstItem, indexOfLastItem);
-
+  const [editBlog, setEditBlog] = useState(null);
+  const navigate = useNavigate();
   const totalPages = Math.ceil(tableData.length / itemsPerPage);
 
   const handleNextPage = () => {
     setCurrentPage((prevPage) => (prevPage < totalPages ? prevPage + 1 : prevPage));
   };
+  const handleEdit = (index) => {
+    navigate(`/admin/dashboard/edit-blogs/${index}`);
+  };
+
 
   const handlePrevPage = () => {
     setCurrentPage((prevPage) => (prevPage > 1 ? prevPage - 1 : prevPage));
   };
 
   const handleAdd = () => {
-    // Implement logic for adding a new blog
+    navigate('/admin/dashboard/uploadblogs')
   };
 
-  const handleDelete = (id) => {
-    // Implement logic for deleting a blog based on id
-    const updatedData = tableData.filter((blog) => blog.id !== id);
-    // Update the state with the updatedData
-    setTableData(updatedData);
+  const handleDelete = (index) => {
+    const shouldDelete = window.confirm('Are you sure you want to delete this Blogs?');
+    if (shouldDelete) {
+      console.log(`Delete Blogs at index ${index}`);
+    }
   };
 
   const handleView = (blog) => {
@@ -42,7 +48,15 @@ const Blogs = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
+  const handleSaveEdit = () => {
+    // Implement logic for saving the edited blog
+    const updatedData = tableData.map((blog) =>
+      blog.id === editBlog.id ? editBlog : blog
+    );
+    setTableData(updatedData);
+    setIsModalOpen(false);
+    setEditBlog(null);
+  };
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Blogs</h2>
@@ -91,6 +105,12 @@ const Blogs = () => {
                   >
                     View
                   </button>
+                  <button
+                  onClick={() => handleEdit(item)}
+                  className="bg-yellow-500 text-white px-2 py-1 mr-2"
+                >
+                  Edit
+                </button>
                   <button
                     onClick={() => handleDelete(item.id)}
                     className="bg-red-500 text-white px-2 py-1"
@@ -145,6 +165,29 @@ const Blogs = () => {
           </div>
         )}
       </Modal>
+
+      <Modal
+      isOpen={isModalOpen && !!editBlog}
+      onRequestClose={closeModal}
+      contentLabel="Edit Blog"
+    >
+      {editBlog && (
+        <div>
+          <h2>Edit Blog</h2>
+          <label>Title:</label>
+          <input
+            type="text"
+            value={editBlog.ttl}
+            onChange={(e) =>
+              setEditBlog({ ...editBlog, ttl: e.target.value })
+            }
+          />
+          {/* Add input fields for other properties as needed */}
+          <button onClick={handleSaveEdit}>Save</button>
+          <button onClick={closeModal}>Cancel</button>
+        </div>
+      )}
+    </Modal>
     </div>
   );
 };

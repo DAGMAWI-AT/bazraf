@@ -96,7 +96,7 @@ const MessagesPage = () => {
   return (
     <div className="message">
       <h1 className="text-center">Messages</h1>
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 bg-white box-decoration-slice shadow-2xl shadow-blue-gray-900">
       <table className="table-auto w-full mt-4 text-black bg-white">
       <thead>
           <tr>
@@ -106,7 +106,7 @@ const MessagesPage = () => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="p-3 text-center">
           {sampleMessages.map((message) => (
             <MessageRow
               key={message.id}

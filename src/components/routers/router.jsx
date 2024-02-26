@@ -45,6 +45,8 @@ import EditProduct from "../admin/dashboard/products/EditProduct";
 import Contacts from "../admin/dashboard/contacts/Contacts";
 import Testfoter from "../admin/dashboard/footers/Testfoter";
 import Blogs from "../admin/dashboard/blogs/Blogs";
+import UploadBlogs from "../admin/dashboard/blogs/UploadBlogs";
+import EditBlogs from "../admin/dashboard/blogs/EditBlogs";
 
 
 const router = createBrowserRouter([
@@ -306,12 +308,12 @@ const router = createBrowserRouter([
               element: <Blogs />,
             },
             {
-              path: "/admin/dashboard/uploadcontacts",
-              element: <UploadProduct />,
+              path: "/admin/dashboard/uploadblogs",
+              element: <UploadBlogs />,
             },
             {
-              path: "/admin/dashboard/edit-contacts/:id",
-              element: <EditProduct />,
+              path: "/admin/dashboard/edit-blogs/:id",
+              element: <EditBlogs />,
               //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
             },
     ],

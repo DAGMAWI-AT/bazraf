@@ -32,6 +32,8 @@ const Footers = () => {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4">Footer Management</h2>
+      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
+
       <button
         onClick={handleUpload}
         className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
@@ -41,17 +43,17 @@ const Footers = () => {
       <table className="table-auto w-full mt-4 text-black">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">ID</th>
-            <th className="py-2 px-4 border-b">Title</th>
-            <th className="py-2 px-4 border-b">Actions</th>
+            <th className="py-2 px-4 border">ID</th>
+            <th className="py-2 px-4 border">Title</th>
+            <th className="py-2 px-4 border">Actions</th>
           </tr>
         </thead>
         <tbody>
           {footerData.map((item) => (
             <tr key={item.id}>
-              <td className="py-2 px-4 border-b">{item.id}</td>
-              <td className="py-2 px-4 border-b">{item.title}</td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-4 border-b text-center">{item.id}</td>
+              <td className="py-2 px-4 border-b text-center">{item.title}</td>
+              <td className="py-2 px-4 border-b text-center">
                 <button onClick={() => handleEdit(item.id)} className="bg-blue-500 text-white px-2 py-1 mr-2 rounded">
                   Edit
                 </button>
@@ -63,6 +65,8 @@ const Footers = () => {
           ))}
         </tbody>
       </table>
+      </div>
+
     </div>
   );
 };

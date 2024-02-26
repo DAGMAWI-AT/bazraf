@@ -49,7 +49,7 @@ const UploadOverview = () => {
 
   return (
     <div className="max-w-5xl mx-auto mt-4">
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-md p-8 text-black">
+      <form onSubmit={handleSubmit} className="flex flex-wrap -mx-4  bg-white shadow-md rounded-md p-8 text-black">
         <div className="grid grid-cols-2 gap-4 mt-4">
           <div>
             <label htmlFor="hTitle" className="block text-sm font-medium text-gray-600">
@@ -87,7 +87,9 @@ const UploadOverview = () => {
             <label htmlFor="iconFile" className="block text-sm font-medium text-gray-600">
               Icon:
             </label>
-            <input type="file" id="iconFile" name="iconFile" onChange={handleChange} className="mt-1"  required/>
+            <input type="file" id="iconFile" name="iconFile" onChange={handleChange}
+            className="mt-1 p-2 border rounded-md w-full"
+            required/>
           </div>
 
           <div>
@@ -114,10 +116,10 @@ const UploadOverview = () => {
           name="description"
           value={overviewData.description}
           onChange={handleChange}
-          className="mt-1 p-2 border rounded-md w-full" required
+          className="mt-1 p-8 border rounded-md w-full" required
         ></textarea>
 
-        <button type="submit" className="mt-6 bg-green-500 text-white p-2 rounded-md hover:bg-green-600 w-full">
+        <button type="submit" className="mt-6 bg-green-500 text-white p-2 rounded-md hover:bg-green-600">
           Add Overview
         </button>
       </form>

@@ -9,7 +9,15 @@
   }
   
  
+  .sidebar-item:hover {
+    background-color: #3c308c; /* Change the background color on hover */
+    color: #fff; /* Change the text color on hover */
+  }
 
+  .sidebar-item.active {
+    background-color: #3c308c; /* Change the background color for active item */
+    color: #fff; /* Change the text color for active item */
+  }
 .sidebar-wrapper {
     width: 240px; 
     transition: width 0.3s;

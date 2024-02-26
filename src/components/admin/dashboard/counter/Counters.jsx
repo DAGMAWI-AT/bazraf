@@ -65,8 +65,8 @@ const Counters = () => {
     <div>
       <h2 className="dark:text-black text-center" style={{ color: '#2d2e2e' }}>Counters</h2>
 
-      <div className="container mx-auto p-4">
-        <button
+      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
+      <button
           onClick={handleUpload}
           className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
         >
@@ -76,19 +76,19 @@ const Counters = () => {
         <table className="table-auto w-full mt-4 text-black">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Icon</th>
-              <th>Number</th>
-              <th>Title</th>
-              <th>Actions</th>
+              <th className='text-center border p-3'>ID</th>
+              <th className='text-center border p-3'>Icon</th>
+              <th className='text-center border p-3'>Number</th>
+              <th className='text-center border p-3'>Title</th>
+              <th className='text-center border p-3'>Actions</th>
             </tr>
           </thead>
           <tbody>
             {counter.slice(startIndex, endIndex).map((item, i) => (
               <tr key={i + startIndex}>
-                <td>{i + startIndex + 1}</td>
-                <td>{item.icon}</td>
-                <td>
+                <td className='text-center'>{i + startIndex + 1}</td>
+                <td className='text-center'>{item.icon}</td>
+                <td className='text-center'>
                   {editableIndex === i + startIndex ? (
                     <input
                       type="text"
@@ -99,8 +99,8 @@ const Counters = () => {
                     <CountUp duration={2} end={item.num} />
                   )}
                 </td>
-                <td>{item.title}</td>
-                <td>
+                <td className='text-center'>{item.title}</td>
+                <td className='text-center'>
                   {editableIndex === i + startIndex ? (
                     <button
                       className="bg-yellow-500"

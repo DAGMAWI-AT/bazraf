@@ -28,7 +28,7 @@ const UploadProduct = () => {
 
   return (
     <div className="max-w-5xl mx-auto mt-4">
-      <h2 className="dark:text-black text-center mb-4">Upload Counters</h2>
+      <h2 className="dark:text-black text-center mb-4">Upload Products</h2>
 
       <form
         className="bg-white shadow-md rounded-md p-8 text-black"

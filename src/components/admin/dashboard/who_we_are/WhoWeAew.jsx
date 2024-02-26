@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Table } from 'flowbite-react';
+import { Table, TextInput } from 'flowbite-react';
 import Modal from 'react-modal';
 
 const WhoWeAre = () => {
   const [videos, setVideos] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,6 +57,16 @@ const WhoWeAre = () => {
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Filter videos based on the search query
+  const filteredVideos = videos.filter((video) =>
+    video.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const modalStyle = {
     content: {
       width: '60%', // Set the desired width
@@ -70,75 +81,99 @@ const WhoWeAre = () => {
       <h2 className="mb-8 text-3xl font-bold text-center" style={{ color: '#2d2e2e' }}>
         Manage Videos
       </h2>
-      <div className="container mx-auto p-4">
 
-      <button onClick={handleAddVideo} className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0">
-        Add Video
-      </button>
+      <div className="container mx-auto p-4 bg-white box-decoration-slice shadow-2xl shadow-blue-gray-900">
+        <button
+          onClick={handleAddVideo}
+          className="font-semibold float-right px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-3"
+        >
+          Add Video
+        </button>
 
-      {/* Video Table */}
-      <Table className="relative table-auto w-full mt-4 text-black">
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Video</th>
-            <th className="text-center">Action</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y">
-          {videos.map((video, index) => (
-            <tr key={video._id} className="bg-white dark:border-black-700 dark:bg-gray-800">
-              <td>{index + 1}</td>
-              <td>{video.title}</td>
-              <td>{video.description}</td>
-              <td>
-                {/* Embed small video in the cell */}
-                <video width="150" height="100" controls>
-                  <source src={`http://localhost:8000/videos/${video.videoFile}`} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </td>
-              <td>
-                <button onClick={() => handleEdit(video._id)} className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-2">
-                  Edit
-                </button>
-                <button onClick={() => handleDelete(video._id)} className="bg-red-600 px-1 py-1 font-semibold hover:bg-orange-700 text-white  hover:bg-sky-600 mr-2">
-                  Delete
-                </button>
-                <button onClick={() => handleView(video)} className="bg-blue-600 px-1 py-1 font-semibold hover:bg-blue-700 text-white  hover:bg-sky-600 mr-2">
-                  View
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-</div>
-      {/* Modal for viewing video details */}
-      <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={closeModal}
-      contentLabel="Video Details"
-      style={modalStyle} 
+        {/* Search Input */}
+        <div className="mb-4">
+          <input
+            id="search"
+            type="text"
+            placeholder="Search..."
+            sizing="lg"
+            value={searchQuery}
+            onChange={handleSearch}
+            className="rounded-full ml-3 border focus:outline-none  focus:border-blue-500 p-1  hover:border-blue-500"
 
-    >
-      {selectedVideo && (
-        <div>
-          <button onClick={closeModal} className="float-right text-red-600 text-2xl cursor-pointer" style={{ marginRight: '10px' }}>
-            &times;
-          </button>
-          <video width="80%" height="10%" controls>
-          <source src={`http://localhost:8000/videos/${selectedVideo.videoFile}`} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-          <h2>{selectedVideo.title}</h2>
-          <p>{selectedVideo.description}</p>
-         
+          />
         </div>
-      )}
-    </Modal>
+
+        {/* Video Table */}
+        <Table className="relative table-auto w-full mt-4 text-black">
+          <thead>
+            <tr>
+              <th className="text-center border p-3">ID</th>
+              <th className="text-center border p-3">Title</th>
+              <th className="text-center border p-3">Description</th>
+              <th className="text-center border p-3">Video</th>
+              <th className="text-center border p-3">Action</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y">
+            {filteredVideos.map((video, index) => (
+              <tr key={video._id} className="bg-white dark:border-black-700 dark:bg-gray-800">
+                <td className="text-center">{index + 1}</td>
+                <td className="text-center">{video.title}</td>
+                <td className="text-center">{video.description}</td>
+                <td className="text-center">
+                  {/* Embed small video in the cell */}
+                  <video width="150" height="100" controls className="mx-auto block max-w-[100px]">
+                    <source src={`http://localhost:8000/videos/${video.videoFile}`} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </td>
+                <td className="text-center">
+                  <button
+                    onClick={() => handleEdit(video._id)}
+                    className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(video._id)}
+                    className="bg-red-600 px-1 py-1 font-semibold hover:bg-orange-700 text-white  hover:bg-sky-600 mr-2"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => handleView(video)}
+                    className="bg-blue-600 px-1 py-1 font-semibold hover:bg-blue-700 text-white  hover:bg-sky-600 mr-2"
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+
+      {/* Modal for viewing video details */}
+      <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="Video Details" style={modalStyle}>
+        {selectedVideo && (
+          <div>
+            <button
+              onClick={closeModal}
+              className="float-right text-red-600 text-2xl cursor-pointer"
+              style={{ marginRight: '10px' }}
+            >
+              &times;
+            </button>
+            <video width="80%" height="10%" controls>
+              <source src={`http://localhost:8000/videos/${selectedVideo.videoFile}`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <h2>{selectedVideo.title}</h2>
+            <p>{selectedVideo.description}</p>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };

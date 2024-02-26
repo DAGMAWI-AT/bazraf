@@ -30,7 +30,6 @@ function EditOverview() {
     }));
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -40,7 +39,11 @@ function EditOverview() {
     updatedOverview.append('hTitle', form.hTitle.value);
     updatedOverview.append('number', form.number.value);
     updatedOverview.append('description', form.description.value);
-    updatedOverview.append('iconFile', form.iconFile.files[0]);
+
+    // Only append 'iconFile' if a new file has been selected
+    if (form.iconFile.files.length > 0) {
+      updatedOverview.append('iconFile', form.iconFile.files[0]);
+    }
 
     fetch(`http://localhost:8000/bzoverview/${id}`, {
       method: 'PATCH',
@@ -49,16 +52,17 @@ function EditOverview() {
       .then((res) => res.json())
       .then((data) => {
         navigate('/admin/dashboard/managecompanyoverview');
-        alert('overview Updated Successfully');
+        alert('Overview Updated Successfully');
       })
       .catch((error) => {
         console.error('Error updating overview:', error);
       });
   };
+
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-3xl font-bold mb-4">Edit Overview</h2>
-      <form onSubmit={handleSubmit} className="flex flex-wrap -mx-4 text-black">
+      <form onSubmit={handleSubmit} className="flex flex-wrap -mx-4 bg-white shadow-md rounded-md p-8 text-black">
         <div className="mb-4 w-full lg:w-1/2 px-4">
           <label htmlFor="hTitle" className="block text-sm font-medium text-gray-600">
             Heading Title:
@@ -88,8 +92,9 @@ function EditOverview() {
         </div>
 
         <div className="mb-4 w-full lg:w-1/2 px-4">
+       
           <label htmlFor="iconFile" className="block text-sm font-medium text-gray-600">
-            Icon File:
+            New Icon File:
           </label>
           <input
             type="file"
@@ -98,7 +103,19 @@ function EditOverview() {
             onChange={handleChange}
             className="mt-1 p-2 border rounded-md w-full"
           />
+
+          {formData.iconFile && (
+            <div className="mt-1">
+              <img
+                src={`http://localhost:8000/overview/${formData.iconFile}`}
+                alt="Current Icon"
+                style={{ maxWidth: "100px" }}
+              />
+            </div>
+          )}
         </div>
+
+        
 
         <div className="mb-4 w-full lg:w-1/2 px-4">
           <label htmlFor="title" className="block text-sm font-medium text-gray-600">

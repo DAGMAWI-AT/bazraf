@@ -11,11 +11,21 @@ function EditCars() {
   
   const carCategory = ["Lada Vasta", "Lada 4x4", "Lada Cross"];
   const [selectedCarCategory, setSelectedCarCategory] = useState(carCategory[0]);
+  const [editingCategory, setEditingCategory] = useState(false);
 
   const handleChangeSelectedValue = (event) => {
-    console.log(event.target.value);
-    setSelectedCarCategory(event.target.value);
+    const selectedValue = event.target.value;
+    if (selectedValue === "other") {
+      // Handle the case when "Other" is selected
+      // For example, show an input field to allow the user to write a new category
+      setEditingCategory(true); // Add a state to track if user is editing the category
+      setSelectedCarCategory(""); // Clear the selected category
+    } else {
+      setEditingCategory(false);
+      setSelectedCarCategory(selectedValue);
+    }
   };
+  
 
   // handle cars submission
   const handleCarUpdate = (event) => {
@@ -61,7 +71,7 @@ console.log(UpdateCar);
         Update Cars
       </h2>
 
-      <form onSubmit={handleCarUpdate} className='flex lg:w-[1080px] flex-col flex-wrap gap-4'>
+      <form onSubmit={handleCarUpdate}  className="bg-white shadow-lg shadow-blue-gray-900 rounded-md p-8 " >
         <div className='flex gap-8'>
           <div className='lg:w-1/2'>
             <div className='mb-2 block'>
@@ -70,25 +80,44 @@ console.log(UpdateCar);
             <TextInput id='name' name='name' type='text' placeholder='name of car' sizing='lg' defaultValue={name} required  />
           </div>
 
-          <div className='lg:w-1/2'>
-            <div className='mb-2 block'>
-              <Label htmlFor='category' value='Car category' />
+          {editingCategory ? (
+            <div className='lg:w-1/2'>
+              <div className='mb-2 block'>
+                <Label htmlFor='category' value='Car category' />
+              </div>
+              <TextInput
+                id='category'
+                name='category'
+                type='text'
+                placeholder='Enter new category'
+                sizing='lg'
+                value={selectedCarCategory}
+                onChange={(e) => setSelectedCarCategory(e.target.value)}
+              />
             </div>
-            <Select
-              sizing='lg'
-              id='category'
-              name='category'
-              className='w-full rounded'
-              value={selectedCarCategory}
-              onChange={handleChangeSelectedValue}
-            >
-              {carCategory.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </Select>
-          </div>
+          ) : (
+            <div className='lg:w-1/2'>
+              <div className='mb-2 block'>
+                <Label htmlFor='category' value='Car category' />
+              </div>
+              <Select
+                sizing='lg'
+                id='category'
+                name='category'
+                className='w-full rounded'
+                value={selectedCarCategory}
+                onChange={handleChangeSelectedValue}
+              >
+                {carCategory.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+                <option value="other">Other</option>
+              </Select>
+            </div>
+          )}
+          
         </div>
 
         <div className='flex gap-8'>

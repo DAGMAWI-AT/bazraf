@@ -110,7 +110,7 @@ function BannerAdd() {
               id='imageFile'
               accept='image/*'
               onChange={handleImageChange}
-              className='shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md'
+              className='border border-blue-200 rounded-md p-2 w-full'
             />
           </div>
           {imagePreview && (

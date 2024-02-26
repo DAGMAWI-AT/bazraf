@@ -7,19 +7,24 @@ function BannerEdit() {
   const navigate = useNavigate();
 
   const [banner, setBanner] = useState({ title: '', text: '', imageFile: '' });
-  const [imagePreview, setImagePreview] = useState(null);
+  // const [imagePreview, setImagePreview] = useState(null);
+// Inside your BannerEdit component
+const [imagePreview, setImagePreview] = useState(banner.imageFile ? `http://localhost:8000/images/${banner.imageFile}` : null);
 
-  useEffect(() => {
-    // Fetch the banner data based on the ID when the component mounts
-    fetch(`http://localhost:8000/allbanner/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setBanner(data);
-        // Set the initial image preview
-        setImagePreview(data.imageFile);
-      })
-      .catch((error) => console.error('Error fetching banner data:', error));
-  }, [id]);
+useEffect(() => {
+  // Fetch the banner data based on the ID when the component mounts
+  fetch(`http://localhost:8000/allbanner/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      setBanner(data);
+      // Set the initial image preview if a default value exists
+      if (data.imageFile) {
+        setImagePreview(`http://localhost:8000/images/${data.imageFile}`);
+      }
+    })
+    .catch((error) => console.error('Error fetching banner data:', error));
+}, [id]);
+
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -114,6 +119,7 @@ function BannerEdit() {
               type="file"
               accept="image/*"
               onChange={handleImageChange}
+              className='border border-blue-200 rounded-md p-2 w-full'
             />
           </div>
         </div>

@@ -55,14 +55,14 @@ const WhoWeAre_Upload = () => {
 
       <form
         onSubmit={handleFormSubmit}
-        className="flex lg:w-[1080px] flex-col flex-wrap gap-4"
+        className="bg-white shadow-lg shadow-blue-gray-900 rounded-md p-8"
       >
         <div className="flex gap-8">
           <div className="lg:w-1/2">
             <div className="mb-2 block">
               <Label htmlFor="title" value="Video Title" />
             </div>
-            <TextInput
+            <input
               id="title"
               name="title"
               type="text"
@@ -71,18 +71,22 @@ const WhoWeAre_Upload = () => {
               value={videoData.title}
               onChange={handleInputChange}
               required
+              className='border border-blue-200 rounded-md p-3 w-full'
+
             />
           </div>
           <div className="lg:w-1/2">
             <div className="mb-2 block">
               <Label htmlFor="videoFile" value="Video File" />
             </div>
-            <FileInput
+            <input
               id="videoFile"
               name="videoFile"
               type="file"
               sizing="lg"
               onChange={handleInputChange}
+              className='border border-blue-200 rounded-md p-2 w-full'
+
               required
             />
           </div>
@@ -95,7 +99,7 @@ const WhoWeAre_Upload = () => {
           id="description"
           name="description"
           placeholder="Enter video description"
-          sizing="lg"
+          className='border border-blue-200 focus:outline-none rounded-md p-2 w-full'
           value={videoData.description}
           onChange={handleInputChange}
           required

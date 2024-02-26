@@ -94,7 +94,7 @@ navigate("/admin/dashboard/uploadtestimoni")
   return (
     <div>
       <h2 className="dark:text-black text-center" style={{ color: '#2d2e2e' }}>Testimonials</h2>
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
 
       <button
         onClick={handleUpload}
@@ -105,25 +105,25 @@ navigate("/admin/dashboard/uploadtestimoni")
       <table className="table-auto w-full mt-4 text-black">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Profession</th>
-            <th>Cover</th>
-            <th>Text</th>
-            <th>Address</th>
-            <th>Name</th>
-            <th>Actions</th>
+            <th className='text-center border p-3'>ID</th>
+            <th className='text-center border p-3'>Profession</th>
+            <th className='text-center border p-3'>Cover</th>
+            <th className='text-center border p-3'>Text</th>
+            <th className='text-center border p-3'>Address</th>
+            <th className='text-center border p-3'>Name</th>
+            <th className='text-center border p-3'>Actions</th>
           </tr>
         </thead>
         <tbody>
           {testimonialsData.slice(startIndex, endIndex).map((item, index) => (
             <tr key={index + startIndex}>
-              <td>{index + startIndex + 1}</td>
-              <td>{item.prof}</td>
-              <td>{item.cover}</td>
-              <td>{item.text}</td>
-              <td>{item.address}</td>
-              <td>{item.name}</td>
-              <td>
+              <td className='text-center '>{index + startIndex + 1}</td>
+              <td className='text-center'>{item.prof}</td>
+              <td className='text-center'>{item.cover}</td>
+              <td className='text-center'>{item.text}</td>
+              <td className='text-center'>{item.address}</td>
+              <td className='text-center'>{item.name}</td>
+              <td className='text-center'>
                 <button className="bg-blue-500 px-3 py-1 mr-0" onClick={() => handleEdit(index + startIndex)}>
                   Edit
                 </button>

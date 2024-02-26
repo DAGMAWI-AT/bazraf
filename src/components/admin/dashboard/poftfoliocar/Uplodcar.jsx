@@ -6,10 +6,19 @@ function Uplodcar() {
   const [selectedCarCategory, setSelectedCarCategory] = useState(
     carCategory[0]
   );
+  const [uploadCategory, setUploadCategory] = useState(false);
 
   const handleChangeSelectedValue = (event) => {
-    console.log(event.target.value);
-    setSelectedCarCategory(event.target.value);
+    const selectedValue = event.target.value;
+    if (selectedValue === "other") {
+      // Handle the case when "Other" is selected
+      // For example, show an input field to allow the user to write a new category
+      setUploadCategory(true); // Add a state to track if user is editing the category
+      setSelectedCarCategory(""); // Clear the selected category
+    } else {
+      setUploadCategory(false);
+      setSelectedCarCategory(selectedValue);
+    }
   };
 
   // handle cars submission
@@ -72,36 +81,44 @@ function Uplodcar() {
             />
           </div>
 
-          <div className="lg:w-1/2">
-            <div className="mb-2 block">
-              <Label htmlFor="category" value="Car category" />
+          {uploadCategory ? (
+            <div className='lg:w-1/2'>
+              <div className='mb-2 block'>
+                <Label htmlFor='category' value='Car category' />
+              </div>
+              <TextInput
+                id='category'
+                name='category'
+                type='text'
+                placeholder='Enter new category'
+                sizing='lg'
+                value={selectedCarCategory}
+                onChange={(e) => setSelectedCarCategory(e.target.value)}
+              />
             </div>
-            {/*<Select
-              sizing='lg'
-              type='text'
-              id='category'
-              name='category'
-              className='w-full rounded'
-              value={selectedCarCategory}
-              onChange={handleChangeSelectedValue}
-            >
-              {carCategory.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-              </Select>*/}
-            <TextInput
-              sizing="lg"
-              type="text"
-              id="category"
-              name="category"
-              placeholder="Enter car category"
-              className="w-full rounded"
-              value={selectedCarCategory}
-              onChange={handleChangeSelectedValue}
-            />
-          </div>
+          ) : (
+            <div className='lg:w-1/2'>
+              <div className='mb-2 block'>
+                <Label htmlFor='category' value='Car category' />
+              </div>
+              <Select
+                sizing='lg'
+                id='category'
+                name='category'
+                className='w-full rounded'
+                value={selectedCarCategory}
+                onChange={handleChangeSelectedValue}
+              >
+                {carCategory.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+                <option value="other">Other</option>
+              </Select>
+            </div>
+          )}
+          
         </div>
 
         <div className="flex gap-8">

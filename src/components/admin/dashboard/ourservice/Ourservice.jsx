@@ -32,8 +32,8 @@ const Ourservice = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Service Management</h2>
-      <div className="container mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4 text-black text-center">Service Management</h2>
+      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
 
       <button
         onClick={() => navigate("/admin/dashboard/uploadourservice")}
@@ -44,21 +44,21 @@ const Ourservice = () => {
       <table className="table-auto w-full mt-4 text-black">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">Index</th>
-            <th className="py-2 px-4 border-b">Service Name</th>
-            <th className="py-2 px-4 border-b">Description</th>
-            <th className="py-2 px-4 border-b">Video</th>
-            <th className="py-2 px-4 border-b">Actions</th>
+            <th className="py-2 px-4 border">Index</th>
+            <th className="py-2 px-4 border">Service Name</th>
+            <th className="py-2 px-4 border">Description</th>
+            <th className="py-2 px-4 border">Video</th>
+            <th className="py-2 px-4 border">Actions</th>
           </tr>
         </thead>
         <tbody>
           {services.map((service, index) => (
             <tr key={index}>
-              <td className="py-2 px-4 border-b">{service.id}</td>
-              <td className="py-2 px-4 border-b">{service.name}</td>
-              <td className="py-2 px-4 border-b">{service.description}</td>
-              <td className="py-2 px-4 border-b">{service.video}</td>
-              <td className="py-2 px-4 border-b">
+              <td className="py-2 px-4 border-b text-center">{service.id}</td>
+              <td className="py-2 px-4 border-b text-center">{service.name}</td>
+              <td className="py-2 px-4 border-b text-center">{service.description}</td>
+              <td className="py-2 px-4 border-b text-center">{service.video}</td>
+              <td className="py-2 px-4 border-b text-center">
                 <button
                   onClick={() => handleEdit(service.id)}
                   className="bg-blue-500 text-white px-2 py-1 mr-2 rounded"
@@ -76,6 +76,7 @@ const Ourservice = () => {
           ))}
         </tbody>
       </table>
+      <div className='flex justify-between items-center mt-4'>
       <button
         onClick={handleNext}
         className="font-semibold px-3 py-1 bg-blue-600 hover:underline text-white mr-2"
@@ -88,6 +89,7 @@ const Ourservice = () => {
       >
         Previous
       </button>
+      </div>
       </div>
 
     </div>

@@ -5,6 +5,8 @@ function CompanyOverview() {
   const [overview, setOverview] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [overviewsPerPage] = useState(3); // Adjust the number of overviews per page as needed
+  const [selectedOverview, setSelectedOverview] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
@@ -47,9 +49,16 @@ function CompanyOverview() {
   const handleUpload = () => {
     navigate("/admin/dashboard/uploadoverview");
   };
+
   const handleEdit = (id) => {
     navigate(`/admin/dashboard/edit-overview/${id}`);
   };
+
+  const handleViewDetails = (selectedOverview) => {
+    setSelectedOverview(selectedOverview);
+    setIsModalOpen(true);
+  };
+
   // Get current overviews
   const indexOfLastOverview = currentPage * overviewsPerPage;
   const indexOfFirstOverview = indexOfLastOverview - overviewsPerPage;
@@ -62,78 +71,123 @@ function CompanyOverview() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="container mx-auto p-4">
-      <button
-        onClick={handleUpload}
-        className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
+    <div className="px-4 my-8">
+      <h2
+        className="mb-8 text-3xl font-bold text-center text-italic"
+        style={{ color: "#2d2e2e" }}
       >
-        Upload
-      </button>
+        Manage Overview
+      </h2>
+      <div className="container mx-auto p-4 bg-white box-decoration-slice shadow-2xl shadow-blue-gray-900">
+        <button
+          onClick={handleUpload}
+          className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
+        >
+          Upload
+        </button>
 
-      <table className="table-auto w-full mt-4 text-black">
-        <thead>
-          <tr>
-            <th className="border px-4 py-2">ID</th>
-            <th className="border px-4 py-2">HTitle</th>
-            <th className="border px-4 py-2">Number</th>
-            <th className="border px-4 py-2">Icon</th>
-            <th className="border px-4 py-2">Title</th>
-            <th className="border px-4 py-2">Description</th>
-            <th className="border px-4 py-2">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentOverviews.map((item, index) => (
-            <tr key={item._id}>
-              <td className="border px-4 py-2">
-                {index + 1 + (currentPage - 1) * overviewsPerPage}
-              </td>
-              <td className="border px-4 py-2">{item.hTitle}</td>
-              <td className="border px-4 py-2">{item.number}</td>
-              <td>
-                {/* Display image dynamically */}
-                <img
-                  src={`http://localhost:8000/overview/${item.iconFile}`}
-                  alt={item.title}
+        <table className="table-auto w-full mt-4 text-black">
+          <thead>
+            <tr>
+              <th className="border px-4 py-2">ID</th>
+              <th className="border px-4 py-2">HTitle</th>
+              <th className="border px-4 py-2">Number</th>
+              <th className="border px-4 py-2">Icon</th>
+              <th className="border px-4 py-2">Title</th>
+              <th className="border px-4 py-2">Description</th>
+              <th className="border px-4 py-2">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentOverviews.map((item, index) => (
+              <tr key={item._id}>
+                <td className="border px-4 py-2">
+                  {index + 1 + (currentPage - 1) * overviewsPerPage}
+                </td>
+                <td className="border px-4 py-2">{item.hTitle}</td>
+                <td className="border px-4 py-2">{item.number}</td>
+                <td className="border px-4 py-2">
+                  <img
+                    src={`http://localhost:8000/overview/${item.iconFile}`}
+                    alt={item.title}
+                    style={{ maxWidth: "100px" }}
+                  />
+                </td>
+                <td className="border px-4 py-2">{item.title}</td>
+                <td className="border px-4 py-2">{item.description}</td>
+                <td className="border px-4 py-2">
+                  <button
+                    onClick={() => handleEdit(item._id)}
+                    className="bg-blue-500 text-white px-2 py-1 mr-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="bg-red-500 text-white px-2 py-1 mr-2"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => handleViewDetails(item)}
+                    className="bg-green-500 text-white px-2 py-1"
+                  >
+                    View
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {/* Pagination Controls */}
+        <div className="flex justify-between mt-4">
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="bg-blue-500 text-white px-2 py-1 mr-2"
+
+          >
+            Previous
+          </button>
+          <span>{currentPage}</span>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            disabled={indexOfLastOverview >= overview.length}
+            className="bg-blue-500 text-white px-2 py-1 mr-2"
+
+          >
+            Next
+          </button>
+        </div>
+
+        {/* Modal */}
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center">
+          <div className="bg-white p-4 rounded shadow-md w-[600px]">
+              <h1 className="text-2xl font-bold mb-4">Overview Details</h1>
+              {selectedOverview && (
+                <>
+                <button
+                onClick={() => setIsModalOpen(false)}
+                className="float-right bg-blue-500 text-white px-2 py-1 mt-4 text-center"
+
+              >X</button>
+                  <p>HTitle: {selectedOverview.hTitle}</p>
+                  <img
+                  src={`http://localhost:8000/overview/${selectedOverview.iconFile}`}
+                  alt={selectedOverview.title}
                   style={{ maxWidth: "100px" }}
                 />
-              </td>
-              <td className="border px-4 py-2">{item.title}</td>
-              <td className="border px-4 py-2">{item.description}</td>
-              <td className="border px-4 py-2">
-                <button
-                  onClick={() => handleEdit(item._id)} // Pass the overview id to the function
-                  className="bg-blue-500 text-white px-2 py-1 mr-2"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(item._id)}
-                  className="bg-red-500 text-white px-2 py-1"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-      {/* Pagination Controls */}
-      <div className="flex justify-between mt-4">
-        <button
-          onClick={() => paginate(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <span>{currentPage}</span>
-        <button
-          onClick={() => paginate(currentPage + 1)}
-          disabled={indexOfLastOverview >= overview.length}
-        >
-          Next
-        </button>
+                  <p>Number: {selectedOverview.number}</p>
+                  <p>Title: {selectedOverview.title}</p>
+                  <p>Description: {selectedOverview.description}</p>
+                
+                </>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

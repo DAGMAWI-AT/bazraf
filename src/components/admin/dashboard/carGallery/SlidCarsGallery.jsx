@@ -70,33 +70,34 @@ const SlidCarsGallery = () => {
   const currentProduct = data[currentProductId];
 
   return (
-    <div className="container mx-auto p-4">
-      <button
+    <div className="px-4 my-12">
+    <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
+    <button
         onClick={handleUpload}
         className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-2"
       >
         Upload
       </button>
 
-      <table className="mt-8 w-full table-auto">
+      <table className="mt-8 w-full table-auto text-gray-600">
         <thead>
           <tr>
-            <th className="font-bold text-gray-800">Id</th>
-            <th className="font-bold text-gray-800">Name</th>
-            <th className="font-bold text-gray-800">Car Model</th>
-            <th className="font-bold text-gray-800">Car Image</th>
-            <th className="font-bold text-gray-800">Actions</th>
+            <th className="border  text-center p-3">Id</th>
+            <th className="border  text-center p-3">Name</th>
+            <th className="border  text-center p-3">Car Model</th>
+            <th className="border  text-center p-3">Car Image</th>
+            <th className="border  text-center p-3">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr key={currentProductId}>
-            <td className="border px-4 py-2 font-bold text-gray-800">{currentProduct?.id}</td>
-            <td className="font-bold text-gray-800">{currentProduct?.name}</td>
-            <td className="font-bold text-gray-800">{currentProduct?.carmodal}</td>
-            <td className="font-bold text-gray-800">
-              <img src={currentProduct?.image} alt="Car" className="max-w-[50px] max-h-[50px]" />
+            <td className="px-4 py-2 text-center">{currentProduct?.id}</td>
+            <td className="text-center">{currentProduct?.name}</td>
+            <td className="text-center">{currentProduct?.carmodal}</td>
+            <td className="text-center">
+              <img src={currentProduct?.image} alt="Car" className="mx-auto max-w-[50px] max-h-[50px]" />
             </td>
-            <td className="border px-4 py-2">
+            <td className="px-4 py-2">
               <button onClick={() => handleView(currentProduct)} className="bg-green-500 text-white px-2 py-1">
                 View
               </button>
@@ -132,6 +133,7 @@ const SlidCarsGallery = () => {
         closeModal={() => setViewModalOpen(false)}
         data={selectedData}
       />
+    </div>
     </div>
   );
 };

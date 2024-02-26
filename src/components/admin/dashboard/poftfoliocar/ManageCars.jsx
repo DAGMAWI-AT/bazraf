@@ -52,7 +52,9 @@ function ManageCars() {
         });
     }
   };
-
+  const handleUpload = () => {
+    navigate("/admin/dashboard/uploadcars");
+  };
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
@@ -60,28 +62,41 @@ function ManageCars() {
       <h2 className='mb-8 text-3xl font-bold text-center' style={{ color: '#2d2e2e' }}>
         Manage Cars
       </h2>
-      {/* Search and Filter Controls */}
+     
+
+      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
+ 
+      <button
+      onClick={() => handleUpload()}
+      className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500  mr-4 float-right"
+    >
+      Upload
+    </button>
+   
       <div className="mb-4">
         <input
           type="text"
           placeholder="Search by name"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          className="rounded-full ml-3 border focus:outline-none  focus:border-blue-500 p-1  hover:border-blue-500"
+
         />
         {/* Add your category filter dropdown here */}
       </div>
-
+      </div>
       {/* Cars Table */}
-      <Table className='relative lg:w-[1080px]'>
+
+      <Table className='relative container table-auto w-full mt-4  mx-auto text-black  bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900'>
         <thead>
           <tr>
-            <th>Product id</th>
-            <th>Product name</th>
-            <th>Category</th>
-            <th>CarImg</th>
-            <th>Descripion</th>
-            <th>Price</th>
-            <th className='text-center'>Action</th>
+            <th className="text-center border p-3">ID</th>
+            <th className="text-center border p-3">Product name</th>
+            <th className="text-center border p-3">Category</th>
+            <th className="text-center border p-3">CarImg</th>
+            <th className="text-center border p-3">Descripion</th>
+            <th className="text-center border p-3">Price</th>
+            <th className="text-center border p-3">Action</th>
           </tr>
         </thead>
         <tbody className="divide-y">
@@ -89,15 +104,15 @@ function ManageCars() {
             const productId = i + 1 + (currentPage - 1) * carsPerPage;
             return (
               <tr key={item._id} className="bg-white dark:border-black-700 dark:bg-gray-800">
-                <td>{productId}</td>
-                <td>{item.name}</td>
-                <td>{item.category}</td>
-                <td>
-                  <img src={item.imageUrl} alt="" style={{ width: '50px', height: '50px' }} />
+                <td className="text-center">{productId}</td>
+                <td className="text-center">{item.name}</td>
+                <td className="text-center">{item.category}</td>
+                <td className="text-center">
+                  <img src={item.imageUrl} alt=""  className="mx-auto block max-w-[60px]" />
                 </td>
-                <td>describes</td>
-                <td>{item.price}</td>
-                <td>
+                <td className="text-center">describes</td>
+                <td className="text-center">{item.price}</td>
+                <td className="text-center">
                   <button onClick={() => handleEdit(item._id)} className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0 ">
                     Edit
                   </button>

@@ -57,8 +57,8 @@ const Product = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Product List</h2>
-      <div className="container mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4 text-center text-black">Product List</h2>
+      <div className="container mx-auto p-4 bg-white box-decoration-slice shadow-2xl shadow-blue-gray-900">
         <button
           onClick={() => navigate("/admin/dashboard/uploadproduct")}
           className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
@@ -68,29 +68,29 @@ const Product = () => {
         <table className="table-auto w-full mt-4 text-black">
           <thead>
             <tr>
-              <th className="py-2 px-4 border-b">Id</th>
-              <th className="py-2 px-4 border-b">Title</th>
-              <th className="py-2 px-4 border-b">Link</th>
-              <th className="py-2 px-4 border-b">Image</th>
-              <th className="py-2 px-4 border-b">Description</th>
-              <th className="py-2 px-4 border-b">Actions</th>
+              <th className="p-3 border">Id</th>
+              <th className="p-3 border">Title</th>
+              <th className="p-3 border">Link</th>
+              <th className="p-3 border">Image</th>
+              <th className="p-3 border">Description</th>
+              <th className="p-3 border">Actions</th>
             </tr>
           </thead>
           <tbody>
             {products.map((product, index) => (
               <tr key={product.id}>
-                <td className="py-2 px-4 border-b">{product.id}</td>
-                <td className="py-2 px-4 border-b">{product.title}</td>
-                <td className="py-2 px-4 border-b">
+                <td className="py-2 px-4 border-b text-center">{product.id}</td>
+                <td className="py-2 px-4 border-b text-center">{product.title}</td>
+                <td className="py-2 px-4 border-b text-center">
                   <a href={product.link} className="text-blue-500 hover:underline">
                     {product.link}
                   </a>
                 </td>
-                <td className="py-2 px-4 border-b">
+                <td className="py-2 px-4 border-b text-center">
                   <img src={product.image} alt={product.title} className="max-w-full h-auto" />
                 </td>
-                <td className="py-2 px-4 border-b">{product.description}</td>
-                <td className="py-2 px-4 border-b">
+                <td className="py-2 px-4 border-b text-center">{product.description}</td>
+                <td className="py-2 px-4 border-b text-center">
                   <button
                     onClick={() => handleEdit(product.id)}
                     className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-2"
