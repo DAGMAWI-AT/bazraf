@@ -13,7 +13,7 @@ function Banner() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8000/allbanner")
+    fetch("https://bazra.onrender.com/allbanner")
       .then((res) => res.json())
       .then((data) => setBanner(data));
   }, []);
@@ -43,7 +43,7 @@ function Banner() {
     );
 
     if (isConfirmed) {
-      fetch(`http://localhost:8000/deletebanner/${id}`, {
+      fetch(`https://bazra.onrender.com/deletebanner/${id}`, {
         method: "DELETE",
       })
         .then((res) => {
@@ -129,7 +129,7 @@ function Banner() {
                 <td className="text-center">{item.text}</td>
                 <td className="text-center">
                   <img
-                    src={`http://localhost:8000/images/${item.imageFile}`}
+                    src={`https://bazra.onrender.com/images/${item.imageFile}`}
                     alt={item.title}
                     className="mx-auto block max-w-[100px]"
                   />
@@ -213,7 +213,7 @@ function Banner() {
               &#10006;
             </button>
             <img
-              src={`http://localhost:8000/images/${selectedBanner.imageFile}`}
+              src={`https://bazra.onrender.com/images/${selectedBanner.imageFile}`}
               alt={selectedBanner.title}
               style={{ maxWidth: "100%", maxHeight: "400px" }}
             />

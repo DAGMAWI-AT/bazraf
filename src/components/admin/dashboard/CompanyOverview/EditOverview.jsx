@@ -15,7 +15,7 @@ function EditOverview() {
 
   useEffect(() => {
     // Fetch the existing data for the specified ID
-    fetch(`http://localhost:8000/bzoverview/${id}`)
+    fetch(`https://bazra.onrender.com/bzoverview/${id}`)
       .then((response) => response.json())
       .then((data) => setFormData(data))
       .catch((error) => console.error('Error fetching data:', error));
@@ -45,7 +45,7 @@ function EditOverview() {
       updatedOverview.append('iconFile', form.iconFile.files[0]);
     }
 
-    fetch(`http://localhost:8000/bzoverview/${id}`, {
+    fetch(`https://bazra.onrender.com/bzoverview/${id}`, {
       method: 'PATCH',
       body: updatedOverview,
     })
@@ -107,7 +107,7 @@ function EditOverview() {
           {formData.iconFile && (
             <div className="mt-1">
               <img
-                src={`http://localhost:8000/overview/${formData.iconFile}`}
+                src={`https://bazra.onrender.com/overview/${formData.iconFile}`}
                 alt="Current Icon"
                 style={{ maxWidth: "100px" }}
               />

@@ -13,11 +13,11 @@ const WhoWeAreEdit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:8000/whoweare/${id}`)
+    fetch(`https://bazra.onrender.com/whoweare/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setVideoData(data);
-        setVideoPreview(`http://localhost:8000/videos/${data.videoFile}`);
+        setVideoPreview(`https://bazra.onrender.com/videos/${data.videoFile}`);
       })
       .catch((error) => console.error('Error fetching video data:', error));
   }, [id]);
@@ -43,7 +43,7 @@ const WhoWeAreEdit = () => {
     formData.append('description', videoData.description);
     formData.append('videoFile', videoData.videoFile);
 
-    fetch(`http://localhost:8000/updatewhoweare/${id}`, {
+    fetch(`https://bazra.onrender.com/updatewhoweare/${id}`, {
       method: 'PATCH',
       body: formData,
     })
@@ -63,7 +63,7 @@ const WhoWeAreEdit = () => {
       <h2 className="mb-8 text-3xl font-bold text-center" style={{ color: '#2d2e2e' }}>
         Edit Video
       </h2>
-      <form onSubmit={handleFormSubmit} className="bg-white shadow-lg shadow-blue-gray-900 rounded-md p-8">
+      <form onSubmit={handleFormSubmit} className="bg-white shadow-lg shadow-blue-gray-900 rounded-md p-8 text-black text-center">
         <div className="flex gap-8">
           <div className="lg:w-1/2">
             <div className="mb-2 block">

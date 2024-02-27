@@ -59,7 +59,7 @@ const Blogs = () => {
   };
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Blogs</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center text-black">Blogs</h2>
       <div className="container mx-auto p-4 bg-white">
 
       <div className="mt-4">

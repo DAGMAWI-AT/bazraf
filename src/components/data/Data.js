@@ -97,9 +97,16 @@ export const home =[
 export const about =[
   {
   text:"About us Bazra",
-  Desc: <p>A company vision, usually expressed in a company vision statement, describes an organization's aspirational long-term goal. Clearly defining your company vision helps guide decision-making, build your brand, and increase employee engagement.</p>,
+  visionDesc: <p>A company vision, usually expressed in a company vision statement, describes an organization's aspirational long-term goal. Clearly defining your company vision helps guide decision-making, build your brand, and increase employee engagement.</p>,
+  objectiveDesc: <p>A company Objectiv, usually expressed in a company vision statement, describes an organization's aspirational long-term goal. Clearly defining your company vision helps guide decision-making, build your brand, and increase employee engagement.</p>,
+  missionDesc: <p>A company Mission, usually expressed in a company vision statement, describes an organization's aspirational long-term goal. Clearly defining your company vision helps guide decision-making, build your brand, and increase employee engagement.</p>,
+
   cover:"../IMGlogo1.jpg",
-}
+  title:"any + years of exprince in the manifacturing industry",
+  moreDesc:"bazra moters is a fully etiopian owned Conpany that foucuses on value mazimi ans is a service oriented solution provider , estavlished in we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services",
+  bannerDesc:"bazra moters is a fully etiopian owned Conpany that foucuses on value mazimi ans is a service oriented solution provider , estavlished in we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services"
+
+},
 ]
 
 

@@ -56,7 +56,9 @@ const UploadService = () => {
   const [serviceData, setserviceData] = useState({
     title: "",
     description: "",
-    videoFile: null,
+    videoFiles: null,
+    iconFiles: null,
+
   });
 
   const navigate = useNavigate();
@@ -76,10 +78,12 @@ const UploadService = () => {
     const formData = new FormData();
     formData.append("title", serviceData.title);
     formData.append("description", serviceData.description);
-    formData.append("videoFile", serviceData.imageFiles);
+    formData.append("videoFiles", serviceData.imageFiles);
+    formData.append("iconFiles", serviceData.imageFiles);
+
 
     // Add your fetch logic to send the data to the server
-    fetch("http://localhost:8000/uploadservice", {
+    fetch("https://bazra.onrender.com/uploadservice", {
       method: "POST",
       body: formData,
     })
@@ -125,16 +129,32 @@ const UploadService = () => {
             <div className="mb-2 block">
               <Label htmlFor="imageFiles" value="Video File" />
             </div>
-            <FileInput
+            <input
               id="imageFiles"
               name="imageFiles"
               type="file"
-              sizing="lg"
+              className="border border-gray-300 rounded-md p-2 w-full"
               onChange={handleInputChange}
               required
             />
           </div>
         </div>
+        <div className="flex gap-8">
+
+        <div className="lg:w-1/2">
+        <div className="mb-2 block">
+          <Label htmlFor="imageFiles" value="Video File" />
+        </div>
+        <input
+          id="imageFiles"
+          name="imageFiles"
+          type="file"
+          className="border border-gray-300 rounded-md p-2 w-full"
+          onChange={handleInputChange}
+          required
+        />
+      </div>
+      <div className="lg:w-1/2">
 
         <div className="mb-2 block">
           <Label htmlFor="description" value="Video Description" />
@@ -149,6 +169,8 @@ const UploadService = () => {
           required
           rows={6}
         />
+        </div>
+        </div>
         <Button
           type="submit"
           className="mt-5"

@@ -47,6 +47,9 @@ import Testfoter from "../admin/dashboard/footers/Testfoter";
 import Blogs from "../admin/dashboard/blogs/Blogs";
 import UploadBlogs from "../admin/dashboard/blogs/UploadBlogs";
 import EditBlogs from "../admin/dashboard/blogs/EditBlogs";
+import Abouts from "../admin/dashboard/abouts/Abouts";
+import UploadAbouts from "../admin/dashboard/abouts/UploadAbouts";
+import EditAbouts from "../admin/dashboard/abouts/EditAbouts";
 
 
 const router = createBrowserRouter([
@@ -116,7 +119,7 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-banner/:id",
         element: <BannerEdit />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/updatebanner/${params.id}`), // Use relative path
+          fetch(`https://bazra.onrender.com/updatebanner/${params.id}`), // Use relative path
       },
 
       {
@@ -149,7 +152,7 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-whoweare/:id",
         element: <WhoWeAreEdit />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/updatewhoweare/${params.id}`),
+          fetch(`https://bazra.onrender.com/updatewhoweare/${params.id}`),
       },
 
       // company overview path
@@ -165,7 +168,7 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/edit-overview/:id",
         element: <EditOverview />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/bzoverview/${params.id}`),
+          fetch(`https://bazra.onrender.com/bzoverview/${params.id}`),
       },
 
       //service
@@ -316,6 +319,23 @@ const router = createBrowserRouter([
               element: <EditBlogs />,
               //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
             },
+
+//Abouts 
+
+
+{
+  path: "/admin/dashboard/abouts",
+  element: <Abouts />,
+},
+{
+  path: "/admin/dashboard/uploadabouts",
+  element: <UploadAbouts />,
+},
+{
+  path: "/admin/dashboard/edit-abouts/:id",
+  element: <EditAbouts />,
+  //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+},
     ],
   },
 ]);

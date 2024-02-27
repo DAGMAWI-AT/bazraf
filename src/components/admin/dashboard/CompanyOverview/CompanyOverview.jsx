@@ -15,7 +15,7 @@ function CompanyOverview() {
     );
 
     if (isConfirmed) {
-      fetch(`http://localhost:8000/bzoverview/${id}`, {
+      fetch(`https://bazra.onrender.com/bzoverview/${id}`, {
         method: "DELETE",
       })
         .then((res) => {
@@ -40,7 +40,7 @@ function CompanyOverview() {
 
   useEffect(() => {
     // Fetch data when the component mounts
-    fetch("http://localhost:8000/bzoverview") // Update the URL based on your server endpoint
+    fetch("https://bazra.onrender.com/bzoverview") // Update the URL based on your server endpoint
       .then((response) => response.json())
       .then((data) => setOverview(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -108,7 +108,7 @@ function CompanyOverview() {
                 <td className="border px-4 py-2">{item.number}</td>
                 <td className="border px-4 py-2">
                   <img
-                    src={`http://localhost:8000/overview/${item.iconFile}`}
+                    src={`https://bazra.onrender.com/overview/${item.iconFile}`}
                     alt={item.title}
                     style={{ maxWidth: "100px" }}
                   />
@@ -175,7 +175,7 @@ function CompanyOverview() {
               >X</button>
                   <p>HTitle: {selectedOverview.hTitle}</p>
                   <img
-                  src={`http://localhost:8000/overview/${selectedOverview.iconFile}`}
+                  src={`https://bazra.onrender.com/overview/${selectedOverview.iconFile}`}
                   alt={selectedOverview.title}
                   style={{ maxWidth: "100px" }}
                 />

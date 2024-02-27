@@ -5,24 +5,28 @@ function ServiceManage() {
   const [services, setServices] = useState([]);
   const [error, setError] = useState('');
 
+  // useEffect(() => {
+  //   // Fetch services data from your API
+  //   fetch('https://bazra.onrender.com/services') // Update the URL with your actual API endpoint
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! Status: ${response.status}`);
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setServices(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching services:', error);
+  //       setError('Error fetching services. Please try again.');
+  //     });
+  // }, []);
   useEffect(() => {
-    // Fetch services data from your API
-    fetch('http://localhost:8000/services') // Update the URL with your actual API endpoint
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setServices(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching services:', error);
-        setError('Error fetching services. Please try again.');
-      });
+    fetch("https://bazra.onrender.com/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
   }, []);
-
   const handleDelete = (id) => {
     // Implement delete logic using your API
     // Example: fetch(`http://localhost:8000/services/${id}`, { method: 'DELETE' })
@@ -50,7 +54,7 @@ function ServiceManage() {
       <Link to="/admin/dashboard/uploadservice" className="bg-blue-500 text-white px-4 py-2 mb-4 inline-block">
         Upload Service
       </Link>
-      <table className="table-auto w-full mt-4 text-black">
+      <table className="table-auto w-full mt-4 text-black bg-white">
         <thead>
           <tr>
             <th className="border px-4 py-2">ID</th>

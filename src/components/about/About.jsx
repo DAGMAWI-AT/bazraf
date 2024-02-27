@@ -54,11 +54,12 @@ const About = () => {
     <>
 
       <section className="about">
-        <Back title='About Us - Who We Are?' desc="BAZRA MOTORS PLC is in the industry of Motor Vehicle and Motor Vehicle Parts and Supplies Merchant Wholesalers Manufacturing of motor vehicles, accessories, spare parts and trailers 
-          Addis Ababa, Ethiopia  Motor Vehicle and Motor Vehicle Parts and Supplies Merchant Wholesalers ,  Merchant Wholesalers, Durable Goods ,  Wholesale Trade ,  Automobiles and other motor vehicles" cover={img} />
-        <div name="ID1" className='row'>
+      {about.map((val, i) => (<>
+        <Back title='About Us - Who We Are?' desc={val.bannerDesc} cover={img} />
+        
+<div>
+          <div name="ID1" className='row'>
           <div className='container flex mtop' data-aos="fade-down-right">
-            {about.map((val, i) => (
               <>
 
 
@@ -73,17 +74,17 @@ const About = () => {
                     <div className='tabs'>
                       <div className={toggleTab === 1 ? "single-tab  active-tab" : "single-tab"}
                         onClick={() => toggleState(1)}>
-                        <button className='primaryBtn'>Misson</button>
+                        <button className='px-3 py-2 hover:bg-blue-gray-900'>Misson</button>
                       </div>
 
                       <div className={toggleTab === 2 ? "single-tab  active-tab" : "single-tab"}
                         onClick={() => toggleState(2)}>
-                        <button className='primaryBtn'>Vision </button>
+                        <button className='px-3 py-2'>Vision </button>
                       </div>
 
                       <div className={toggleTab === 3 ? "single-tab active-tab" : "single-tab"}
                         onClick={() => toggleState(3)}>
-                        <button className='primaryBtn'>Objective</button>
+                        <button className='px-3 py-2'>Objective</button>
                       </div>
 
                     </div>
@@ -91,8 +92,15 @@ const About = () => {
                       {/* about content */}
                       <div className={toggleTab === 1 ? "contents active-contents" : "contents"}>
 
-                        <h2>company info </h2>
-                        <p>{val.Desc}</p>
+                      <h3>
+                      Company Info
+                  </h3>
+                  <div className="w-full sm:w-[500px] md:w-[750px] flex flex-auto flex-col">
+                      <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+                          {val.missionDesc}
+                      </p>
+                  </div>
+
                         <div className="">
 
                           <div className="vition-column">
@@ -150,52 +158,37 @@ const About = () => {
 
                       {/* vition content */}
                       <div className={toggleTab === 2 ? "contents active-contents" : "contents"}>
-                        <h3>Vision </h3>
 
 
 
-                        <div className="vition-row">
+                        <div className="w-full">
 
-                          <div className="vition-column">
-                            <h3>vision  1</h3>
-                            <p>{val.Desc}</p>
+                          <div className="w-full">
+                            <h3>Vision</h3>
+                            <div className='w-[750px]'>
+
+                            <p>{val.visionDesc}</p>
+                            </div>
                           </div>
 
-                          <div className="vition-column">
-                            <h3>vision  2</h3>
-                            <p>{val.Desc}</p>
-                          </div>
-
-                          <div className="vition-column">
-                            <h3>vision  1</h3>
-                            <p>{val.Desc}</p>
-                          </div>
-
-                          <div className="vition-column">
-                            <h3>vision  1</h3>
-                            <p>{val.Desc}</p>
-                          </div>
+                          
 
                         </div>
                       </div>
                       {/*  objective content */}
                       <div className={toggleTab === 3 ? "contents active-contents" : "contents"}>
                         <div className="ob-column">
-                          <h3>objective  1</h3>
-                          <p>{val.Desc}</p>
+                          <h3>objective</h3>
+                          <div className='w-[750px]'>
+
+                          <p>{val.objectiveDesc}</p>
+                          </div>
                         </div>
-
-
-                        <div className="ob-column">
-                          <span> 2000-2023</span>
-                          <p>{val.Desc}</p>
-                        </div>
-
                       </div>
 
 
-                      <button className='primaryBtn' data-aos="fade-down-right">More About Us</button>
-
+{/*                      <button className='primaryBtn' data-aos="fade-down-right">More About Us</button>
+            */}
 
                     </div>
 
@@ -205,7 +198,7 @@ const About = () => {
 
                 </div>
               </>
-            ))}
+            
 
           </div>
         </div>
@@ -215,20 +208,14 @@ const About = () => {
 
             <div className="left1 row">
               <div className="l1">
-                <h1>any + years of exprince in the manifacturing industry</h1>
+                <h1>{val.title}</h1>
 
-                <Link> more infomarion ...</Link>
+                <Link> More Infomarion About Bazra ...</Link>
               </div>
             </div>
             <hr />
             <div className="right1 row">
-              <p>bazra moters is a fully etiopian owned Conpany that foucuses on value mazimi
-                ans is a service oriented solution provider , estavlished in ///
-
-                we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services
-                we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services
-                we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services
-                we has been involved excludively in te areas ranging from enerpisie manifacturing sercives and business automatio intelligene to slmar i infranstructur and clud services
+              <p>{val.moreDesc}
 
               </p>
             </div>
@@ -236,7 +223,10 @@ const About = () => {
           </div>
 
         </>
-
+        </div>
+        </>
+        ))}
+        
         {renderCompanyOverview()}
 
 

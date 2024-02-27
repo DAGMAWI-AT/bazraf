@@ -12,7 +12,7 @@ const WhoWeAre = () => {
 
   useEffect(() => {
     // Fetch video data when the component mounts
-    fetch('http://localhost:8000/whoweare')
+    fetch('https://bazra.onrender.com/whoweare')
       .then((res) => res.json())
       .then((data) => setVideos(data))
       .catch((error) => console.error('Error fetching video data:', error));
@@ -26,7 +26,7 @@ const WhoWeAre = () => {
     const isConfirmed = window.confirm('Are you sure you want to delete this video?');
 
     if (isConfirmed) {
-      fetch(`http://localhost:8000/deletewhoweare/${id}`, {
+      fetch(`https://bazra.onrender.com/deletewhoweare/${id}`, {
         method: 'DELETE',
       })
         .then((res) => {
@@ -124,7 +124,7 @@ const WhoWeAre = () => {
                 <td className="text-center">
                   {/* Embed small video in the cell */}
                   <video width="150" height="100" controls className="mx-auto block max-w-[100px]">
-                    <source src={`http://localhost:8000/videos/${video.videoFile}`} type="video/mp4" />
+                    <source src={`https://bazra.onrender.com/videos/${video.videoFile}`} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </td>
@@ -166,7 +166,7 @@ const WhoWeAre = () => {
               &times;
             </button>
             <video width="80%" height="10%" controls>
-              <source src={`http://localhost:8000/videos/${selectedVideo.videoFile}`} type="video/mp4" />
+              <source src={`https://bazra.onrender.com/videos/${selectedVideo.videoFile}`} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <h2>{selectedVideo.title}</h2>

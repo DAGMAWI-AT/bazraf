@@ -32,7 +32,7 @@ const UploadOverview = () => {
     formData.append("iconFile", overviewData.iconFile);
 
     // Add your fetch logic to send the data to the server
-    fetch("http://localhost:8000/bzoverview", {
+    fetch("https://bazra.onrender.com/bzoverview", {
       method: "POST",
       body: formData,
     })

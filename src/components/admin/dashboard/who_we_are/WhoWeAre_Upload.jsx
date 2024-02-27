@@ -29,7 +29,7 @@ const WhoWeAre_Upload = () => {
     formData.append("videoFile", videoData.videoFile);
 
     // Add your fetch logic to send the data to the server
-    fetch("http://localhost:8000/addwhoweare", {
+    fetch("https://bazra.onrender.com/addwhoweare", {
       method: "POST",
       body: formData,
     })

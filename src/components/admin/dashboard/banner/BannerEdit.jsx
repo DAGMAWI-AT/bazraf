@@ -9,17 +9,17 @@ function BannerEdit() {
   const [banner, setBanner] = useState({ title: '', text: '', imageFile: '' });
   // const [imagePreview, setImagePreview] = useState(null);
 // Inside your BannerEdit component
-const [imagePreview, setImagePreview] = useState(banner.imageFile ? `http://localhost:8000/images/${banner.imageFile}` : null);
+const [imagePreview, setImagePreview] = useState(banner.imageFile ? `https://bazra.onrender.com/images/${banner.imageFile}` : null);
 
 useEffect(() => {
   // Fetch the banner data based on the ID when the component mounts
-  fetch(`http://localhost:8000/allbanner/${id}`)
+  fetch(`https://bazra.onrender.com/allbanner/${id}`)
     .then((res) => res.json())
     .then((data) => {
       setBanner(data);
       // Set the initial image preview if a default value exists
       if (data.imageFile) {
-        setImagePreview(`http://localhost:8000/images/${data.imageFile}`);
+        setImagePreview(`https://bazra.onrender.com/images/${data.imageFile}`);
       }
     })
     .catch((error) => console.error('Error fetching banner data:', error));
@@ -48,7 +48,7 @@ useEffect(() => {
       updatedBanner.append('imageFile', form.imageFile.files[0]);
     }
 
-    fetch(`http://localhost:8000/updatebanner/${id}`, {
+    fetch(`https://bazra.onrender.com/updatebanner/${id}`, {
       method: 'PATCH',
       body: updatedBanner,
     })

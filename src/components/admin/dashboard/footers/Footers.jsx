@@ -31,7 +31,7 @@ const Footers = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Footer Management</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center text-black">Footer Management</h2>
       <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
 
       <button

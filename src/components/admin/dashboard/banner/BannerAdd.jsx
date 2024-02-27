@@ -17,7 +17,7 @@ function BannerAdd() {
       formData.append('text', text);
       formData.append('imageFile', imageFile);
 
-      const response = await fetch('http://localhost:8000/addbanner', {
+      const response = await fetch('https://bazra.onrender.com/addbanner', {
         method: 'POST',
         body: formData,
       });
