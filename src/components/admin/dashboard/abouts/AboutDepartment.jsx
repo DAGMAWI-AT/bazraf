@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
+import { useNavigate } from 'react-router-dom';
 
 function AboutDepartment() {
+    const navigate = useNavigate();
+
   const departmentsData = [
     {
       id: '1',
@@ -12,7 +16,7 @@ function AboutDepartment() {
     {
       id: '2',
       title: 'IT Services Department',
-      image: '../../../IT.png',
+      image: '../../../../IT.png',
       description: 'The IT Services Department ensures the smooth functioning of our digital infrastructure. We provide comprehensive IT solutions to support the organization\'s operations and security.',
       services: ['Network Management', 'Software Development', 'Cybersecurity'],
     },
@@ -34,7 +38,7 @@ function AboutDepartment() {
   ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Set the number of items per page
+  const itemsPerPage = 3; // Set the number of items per page
   const totalDepartments = departmentsData.length;
   const totalPages = Math.ceil(totalDepartments / itemsPerPage);
 
@@ -77,6 +81,9 @@ function AboutDepartment() {
       setCurrentPage((prevPage) => prevPage - 1);
     }
   };
+  const handleUpload = () => {
+    navigate('/admin/dashboard/uploadaboutsdeparment');
+  };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -84,12 +91,19 @@ function AboutDepartment() {
 
   return (
     <div>
-      <h2>Manageable Table</h2>
+      <h2 className='text-center text-black'>Manageable Table</h2>
+      <button
+      onClick={handleUpload}
+      className="bg-green-600 px-1 py-1 font-semibold hover:bg-orange-700 text-white hover:bg-sky-600 mr-0"
+    >
+      Upload
+    </button>
       <table className="table-auto w-full mt-4 text-black bg-white">
         <thead>
           <tr>
             <th className="border p-3">ID</th>
             <th className="border p-3">Title</th>
+            <th className="border p-3">Image</th>
             <th className="border p-3">Description</th>
             <th className="border p-3">Actions</th>
           </tr>
@@ -99,6 +113,9 @@ function AboutDepartment() {
             <tr key={department.id} className="text-center">
               <td className="border p-3">{department.id}</td>
               <td className="border p-3">{department.title}</td>
+              <td className="border p-3">
+                <img className="w-[100px]" src={department.image} alt={department.title} />
+              </td>
               <td className="border p-3">{department.description}</td>
               <td className="border text-center p-3">
                 <button
@@ -140,25 +157,58 @@ function AboutDepartment() {
         </button>
       </div>
 
-      {isModalOpen && selectedDepartment && (
+     
+
+      <Modal
+      isOpen={isModalOpen}
+      onRequestClose={handleModalClose}
+      contentLabel="Item Details"
+      style={{
+        overlay: {
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        },
+        content: {
+          width: '50%',
+          margin: 'auto',
+          padding: '20px',
+          backgroundColor: '#fff',
+          borderRadius: '8px',
+        },
+      }}
+    >
+      {selectedDepartment && (
         <div>
-          <div className="modal-overlay" onClick={handleModalClose}></div>
-          <div className="modal">
-            <button className="close-button" onClick={handleModalClose}>
-              &#10006;
-            </button>
-            <h2>{selectedDepartment.title}</h2>
-            <img src={selectedDepartment.image} alt={selectedDepartment.title} />
-            <p>{selectedDepartment.description}</p>
-            <h3>Services:</h3>
-            <ul>
-              {selectedDepartment.services.map((service, index) => (
-                <li key={index}>{service}</li>
-              ))}
-            </ul>
-          </div>
+          <button
+            onClick={handleModalClose}
+            style={{
+              float: 'right',
+              cursor: 'pointer',
+              fontSize: '18px',
+              background: 'none',
+              border: 'none',
+              color: '#000',
+            }}
+          >
+            &#10006;
+          </button>
+          <img
+            src={selectedDepartment.image}
+            alt={selectedDepartment.text}
+            style={{ maxWidth: '100%', maxHeight: '400px' }}
+          />
+          <h2>{selectedDepartment.text}</h2>
+          <p> <b>Title: </b>{selectedDepartment.title}</p>
+          <p> <b>Description: </b>{selectedDepartment.description}</p>
+          <p>
+          <ul>
+          {selectedDepartment.services.map((service, index) => (
+            <li key={index}>{service}</li>
+          ))}
+        </ul>
+        </p>
         </div>
       )}
+    </Modal>
     </div>
   );
 }

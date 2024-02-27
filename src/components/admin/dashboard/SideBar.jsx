@@ -216,12 +216,23 @@ function SideBar() {
           >
             {isCollapsed ? null : <p>Abouts</p>}
           </Sidebar.Item>
+          <Sidebar.Item
+          as={Link}
+          to="/admin/dashboard/aboutsdepartment"
+          icon={HiChartPie}
+          className={`sidebar-item ${
+            activeItem === "Depatment" ? "active" : ""
+          }`}
+          onClick={() => handleItemClick("Depatment")}
+        >
+          {isCollapsed ? null : <p>Depatment</p>}
+        </Sidebar.Item>
           </Sidebar.ItemGroup>
 
           <Sidebar.ItemGroup>
             <Sidebar.Item
               as={Link}
-              to="/admin/dashboard/abouts"
+              to="/admin/dashboard/aboutsdepartment"
               icon={HiChartPie}
               className={`sidebar-item ${
                 activeItem === "Create User" ? "active" : ""

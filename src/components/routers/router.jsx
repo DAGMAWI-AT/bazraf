@@ -50,6 +50,9 @@ import EditBlogs from "../admin/dashboard/blogs/EditBlogs";
 import Abouts from "../admin/dashboard/abouts/Abouts";
 import UploadAbouts from "../admin/dashboard/abouts/UploadAbouts";
 import EditAbouts from "../admin/dashboard/abouts/EditAbouts";
+import AboutDepartment from "../admin/dashboard/abouts/AboutDepartment";
+import UploadAboutDepartment from "../admin/dashboard/abouts/UploadAboutDepartment";
+import EditAboutDepartment from "../admin/dashboard/abouts/EditAboutDepartment";
 
 
 const router = createBrowserRouter([
@@ -334,6 +337,21 @@ const router = createBrowserRouter([
 {
   path: "/admin/dashboard/edit-abouts/:id",
   element: <EditAbouts />,
+  //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
+},
+//aboute department
+
+{
+  path: "/admin/dashboard/aboutsdepartment",
+  element: <AboutDepartment />,
+},
+{
+  path: "/admin/dashboard/uploadaboutsdeparment",
+  element: <UploadAboutDepartment />,
+},
+{
+  path: "/admin/dashboard/edit-aboutsdepartment/:id",
+  element: <EditAboutDepartment />,
   //  loader: ({params})=>fetch(`../../../data/Data/counter/${params.id}`)
 },
     ],
