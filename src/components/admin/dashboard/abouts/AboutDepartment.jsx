@@ -47,7 +47,7 @@ function AboutDepartment() {
 
   const handleEdit = (id) => {
     // Implement your edit logic here
-    console.log(`Edit department with ID: ${id}`);
+    navigate(`/admin/dashboard/edit-aboutsdepartment/${id}`);
   };
 
   const handleDelete = (id) => {
