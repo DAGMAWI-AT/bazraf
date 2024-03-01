@@ -4,7 +4,7 @@ import { postData } from "../../../data/Data";
 import { useNavigate } from "react-router-dom";
 
 const Blogs = () => {
-  const itemsPerPage = 5;
+  const itemsPerPage = 3;
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedBlog, setSelectedBlog] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

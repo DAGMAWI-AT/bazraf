@@ -176,7 +176,7 @@ const UploadService = () => {
           className="mt-5"
           style={{ color: "#11224893", background: "#11224893" }}
         >
-          Add WhoWeAre
+          Add Service
         </Button>
       </form>
       </div>

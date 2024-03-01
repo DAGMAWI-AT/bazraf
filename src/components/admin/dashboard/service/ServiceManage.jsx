@@ -50,7 +50,7 @@ function ServiceManage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-4">Manage Services</h2>
+      <h2 className="text-3xl font-bold text-center text-black mb-4">Manage Services</h2>
       <Link to="/admin/dashboard/uploadservice" className="bg-blue-500 text-white px-4 py-2 mb-4 inline-block">
         Upload Service
       </Link>
