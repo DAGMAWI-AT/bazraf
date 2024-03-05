@@ -73,7 +73,7 @@ const Counters = () => {
           Upload
         </button>
 
-        <table className="table-auto w-full mt-4 text-black">
+        <table className="table-auto w-full mt-4 text-black container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
           <thead>
             <tr>
               <th className='text-center border p-3'>ID</th>

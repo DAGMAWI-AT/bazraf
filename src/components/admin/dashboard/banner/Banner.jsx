@@ -81,23 +81,20 @@ function Banner() {
 
   return (
     <div className="px-4 my-8">
-      <h2
-        className="mb-8 text-3xl font-bold text-center text-italic"
-        style={{ color: "#2d2e2e" }}
-      >
+      <h2 className="mb-8 text-3xl font-bold text-center text-italic text-black">
         Manage Banner
       </h2>
-      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
+      <div className="container mx-auto p-4 box-decoration-slice ">
         <button
           onClick={() => handleAddBanner()}
-          className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500  mr-4 float-right"
+          className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 flex justify-between mt-4 mr-4 float-right"
         >
           Add Banner
         </button>
 
         <div className="mb-4">
           <input
-            className="rounded-full ml-3 border focus:outline-none  focus:border-blue-500 p-1  hover:border-blue-500"
+            className="rounded-full text-black ml-3 border focus:outline-none  focus:border-blue-500 p-1  hover:border-blue-500"
             type="text"
             placeholder="Search by name"
             value={searchTerm}
@@ -106,7 +103,7 @@ function Banner() {
         </div>
 
         {/* Banner Table */}
-        <Table className="relative  table-auto w-full mt-4 text-black">
+        <Table className="relative bg-white table-auto w-full mt-4 text-black">
           <thead>
             <tr>
               <th className="text-center border p-3">ID</th>
@@ -116,12 +113,9 @@ function Banner() {
               <th className="text-center border p-3">Action</th>
             </tr>
           </thead>
-          <tbody className="divide-y ">
+          <tbody className="divide-y">
             {currentBanners.map((item, i) => (
-              <tr
-                key={item._id}
-                className="bg-white dark:border-black-700 dark:bg-gray-800"
-              >
+              <tr key={item._id}>
                 <td className="text-center">
                   {i + 1 + (currentPage - 1) * bannersPerPage}
                 </td>

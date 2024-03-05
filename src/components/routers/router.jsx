@@ -53,6 +53,7 @@ import EditAbouts from "../admin/dashboard/abouts/EditAbouts";
 import AboutDepartment from "../admin/dashboard/abouts/AboutDepartment";
 import UploadAboutDepartment from "../admin/dashboard/abouts/UploadAboutDepartment";
 import EditAboutDepartment from "../admin/dashboard/abouts/EditAboutDepartment";
+import EditService from "../admin/dashboard/service/EditService";
 
 
 const router = createBrowserRouter([
@@ -183,7 +184,11 @@ const router = createBrowserRouter([
         path: "/admin/dashboard/uploadservice",
         element: <UploadService />,
       },
-
+      {
+        path: "/admin/dashboard/edit-service/:id",
+        element: <EditService />,
+        // loader: ({params})=>fetch(`http://localhost:8000/bzoverview/${params.id}`)
+      },
       //slider cars in gallery
 
       {

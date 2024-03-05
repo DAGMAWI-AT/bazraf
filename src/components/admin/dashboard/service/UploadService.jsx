@@ -99,7 +99,7 @@ const UploadService = () => {
   };
 
   return (
-    <div className="px-4 my-12">
+    <div className="px-4 my-8">
       <h2
         className="mb-8 text-3xl font-bold text-center"
         style={{ color: "#2d2e2e" }}

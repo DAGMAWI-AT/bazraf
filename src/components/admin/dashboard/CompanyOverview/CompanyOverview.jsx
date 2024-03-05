@@ -78,15 +78,16 @@ function CompanyOverview() {
       >
         Manage Overview
       </h2>
-      <div className="container mx-auto p-4 bg-white box-decoration-slice shadow-2xl shadow-blue-gray-900">
+      <div className="container mx-auto p-4 box-decoration-slice  ">
         <button
           onClick={handleUpload}
           className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
         >
           Upload
         </button>
+        </div>
 
-        <table className="table-auto w-full mt-4 text-black">
+        <table className="relative container table-auto w-full mt-4  mx-auto text-black  bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
           <thead>
             <tr>
               <th className="border px-4 py-2">ID</th>
@@ -189,7 +190,6 @@ function CompanyOverview() {
           </div>
         )}
       </div>
-    </div>
   );
 }
 

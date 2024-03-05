@@ -25,7 +25,7 @@ function EditGallery() {
 
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-3xl font-bold mb-4">Edit Cars Gallery</h2>
+      <h2 className="text-3xl font-bold mb-4 text-center text-gray-900">Edit Cars Gallery</h2>
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md text-black">
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-semibold text-gray-600">
