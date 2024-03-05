@@ -94,7 +94,7 @@ navigate("/admin/dashboard/uploadtestimoni")
   return (
     <div>
       <h2 className="dark:text-black text-center" style={{ color: '#2d2e2e' }}>Testimonials</h2>
-      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
+      <div className="container mx-auto p-4  box-decoration-slice">
 
       <button
         onClick={handleUpload}
@@ -102,7 +102,7 @@ navigate("/admin/dashboard/uploadtestimoni")
       >
         Upload Data
       </button>
-      <table className="table-auto w-full mt-4 text-black">
+      <table className="table-auto w-full mt-4 text-black container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
         <thead>
           <tr>
             <th className='text-center border p-3'>ID</th>

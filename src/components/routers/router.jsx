@@ -50,9 +50,9 @@ import EditBlogs from "../admin/dashboard/blogs/EditBlogs";
 import Abouts from "../admin/dashboard/abouts/Abouts";
 import UploadAbouts from "../admin/dashboard/abouts/UploadAbouts";
 import EditAbouts from "../admin/dashboard/abouts/EditAbouts";
-import AboutDepartment from "../admin/dashboard/abouts/AboutDepartment";
-import UploadAboutDepartment from "../admin/dashboard/abouts/UploadAboutDepartment";
-import EditAboutDepartment from "../admin/dashboard/abouts/EditAboutDepartment";
+import AboutDepartment from "../admin/dashboard/aboutsDepartment/AboutDepartment";
+import UploadAboutDepartment from "../admin/dashboard/aboutsDepartment/UploadAboutDepartment";
+import EditAboutDepartment from "../admin/dashboard/aboutsDepartment/EditAboutDepartment";
 import EditService from "../admin/dashboard/service/EditService";
 
 

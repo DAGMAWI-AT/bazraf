@@ -140,7 +140,7 @@ function EditAbouts() {
               Cover Image URL:
             </label>
             <input
-              type="text"
+              type="file"
               name="cover"
               value={formData.cover}
               onChange={handleChange}

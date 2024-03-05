@@ -1,7 +1,6 @@
 // SlidCarsGallery.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Modal from 'react-modal';
 import { images } from '../../../data/Data';
 
 const SlidCarsGallery = () => {

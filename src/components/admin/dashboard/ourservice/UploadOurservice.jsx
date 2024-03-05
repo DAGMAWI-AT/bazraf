@@ -28,7 +28,7 @@ const UploadOurservice = ({ onUpload }) => {
 
   return (
     <div className="max-w-5xl mx-auto mt-4">
-    <h2 className="text-2xl font-bold mb-4">Upload New Service</h2>
+    <h2 className="text-2xl font-bold mb-4 text-gray-600 text-center">Upload New Service</h2>
       <form onSubmit="" className="bg-white shadow-md rounded-md p-8 text-black">
       <div className="grid grid-cols-2 gap-4 mt-4">
         <div className="mb-4">

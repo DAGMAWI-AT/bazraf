@@ -63,7 +63,7 @@ const Blogs = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4 text-center text-black">Blogs</h2>
-      <div className="container mx-auto p-4 bg-white">
+      <div className="container mx-auto p-4 ">
         <div className="mt-4">
           <button
             onClick={handleAdd}
@@ -73,7 +73,7 @@ const Blogs = () => {
           </button>
         </div>
         <div className="max-w-5xl mx-auto mt-4">
-          <table className="table-auto w-full mt-4 text-black">
+          <table className="table-auto w-full mt-4 text-black bg-white">
             <thead>
               <tr>
                 <th className="border p-3">ID</th>

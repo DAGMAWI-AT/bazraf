@@ -1,293 +1,177 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { contact, Map } from "../../../data/Data";
-// import "./Board.css";
 import MessagesPage from "./MessagesPage";
 
-// EditContactModal component for editing contact information
-const EditContactModal = ({ initialValue, onSave, onCancel }) => {
-  const [text, setText] = useState(initialValue.text);
-  const [to, setTo] = useState(initialValue.to);
+  
 
-  // Handler for text input change
-  const handleTextChange = (e) => {
-    setText(e.target.value);
-  };
-
-  // Handler for 'to' input change
-  const handleToChange = (e) => {
-    setTo(e.target.value);
-  };
-
-  // Handler for saving changes
-  const handleSave = () => {
-    onSave({ text, to });
-  };
-
-  return (
-    <Modal
-      isOpen={true}
-      onRequestClose={onCancel}
-      contentLabel="Edit Contact Modal"
-    >
-      <div className="modal">
-        <input
-          className="contactInfoInput"
-          type="text"
-          value={text}
-          onChange={handleTextChange}
-          placeholder="Text"
-        />
-        <br />
-        <input
-          className="contactInfoInput"
-          type="text"
-          value={to}
-          onChange={handleToChange}
-          placeholder="To"
-        />
-        <div className="modal-buttons">
-          <button onClick={handleSave}>Save</button>
-          <button onClick={onCancel}>Cancel</button>
-        </div>
-      </div>
-    </Modal>
-  );
-};
-
-// Contacts component for managing contact information
 const Contacts = () => {
-  // State variables for contact information
-  const [location, setLocation] = useState({
-    text: contact[0].text,
-    to: contact[0].to,
-    isEditing: false,
-  });
-  const [phone, setPhone] = useState({
-    text: contact[1].text,
-    to: contact[1].to,
-    isEditing: false,
-  });
-  const [email, setEmail] = useState({
-    text: contact[2].text, // Access the first value from the "text" array
-    to: contact[2].to,
-    isEditing: false,
-  });
-  const [map, setMap] = useState({
-    text: Map.src,
-    isEditing: false,
-  });
 
-  // Handler for editing contact information
-  const handleEdit = (field) => {
-    switch (field) {
-      case "location":
-        setLocation((prevLocation) => ({ ...prevLocation, isEditing: true }));
-        break;
-      case "phone":
-        setPhone((prevPhone) => ({ ...prevPhone, isEditing: true }));
-        break;
-      case "email":
-        setEmail((prevEmail) => ({ ...prevEmail, isEditing: true }));
-        break;
-      case "map":
-        setMap((prevMap) => ({ ...prevMap, isEditing: true }));
-        break;
-      default:
-        break;
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control the modal visibility
+  const [selectedContact, setSelectedContact] = useState(null); // Track the selected footer for the modal
+
+
+  const initialMessages = [
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      message:
+        "Long message 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...",
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      message:
+        "Long message 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...",
+    },
+    {
+      id: 3,
+      name: "Alice Johnson",
+      email: "alice@example.com",
+      message:
+        "Long message 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...",
+    },
+    {
+      id: 4,
+      name: "Bob Wilson",
+      email: "bob@example.com",
+      message:
+        "Long message 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...",
+    },
+  ];
+
+  const [contactData, setContactData] = useState(initialMessages);
+  const [currentPage, setCurrentPage] = useState(1);
+  const contactPerPage = 3;
+
+  const handleView = (id) => {
+    // Find the selected footer data
+    const selected = initialMessages.find((item) => item.id === id);
+    setSelectedContact(selected);
+    setIsModalOpen(true); // Open the modal
+  };
+
+  const closeModal = () => {
+    setSelectedContact(null);
+    setIsModalOpen(false); // Close the modal
+  };
+
+  const handleDelete = (id) => {
+    // Display a confirmation dialog before deleting
+    const shouldDelete = window.confirm(`Are you sure you want to delete footer with ID: ${id}`);
+
+    if (shouldDelete) {
+      // Implement your delete logic here
+      setContactData((prevData) => prevData.filter((item) => item.id !== id));
+      console.log(`Delete footer with ID: ${id}`);
     }
   };
 
-  // Handler for saving contact information
-  const handleSave = (field, editedContact) => {
-    switch (field) {
-      case "location":
-        setLocation({ ...editedContact, isEditing: false });
-        break;
-      case "phone":
-        setPhone({ ...editedContact, isEditing: false });
-        break;
-      case "email":
-        setEmail({ ...editedContact, isEditing: false });
-        break;
-      case "map":
-        setMap({ ...editedContact, isEditing: false });
-        break;
-      default:
-        break;
-    }
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  // Handler for cancelling editing contact information
-  const handleCancel = (field) => {
-    switch (field) {
-      case "location":
-        setLocation((prevLocation) => ({ ...prevLocation, isEditing: false }));
-        break;
-      case "phone":
-        setPhone((prevPhone) => ({ ...prevPhone, isEditing: false }));
-        break;
-      case "email":
-        setEmail((prevEmail) => ({ ...prevEmail, isEditing: false }));
-        break;
-      case "map":
-        setMap((prevMap) => ({ ...prevMap, isEditing: false }));
-        break;
-      default:
-        break;
-    }
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => (prevPage - 1 > 0 ? prevPage - 1 : 1));
   };
 
-  // Handler for input change
-  const handleInputChange = (field, e) => {
-    const newValue = e.target.value;
-    switch (field) {
-      case "location":
-        setLocation((prevLocation) => ({ ...prevLocation, text: newValue }));
-        break;
-      case "phone":
-        setPhone((prevPhone) => ({ ...prevPhone, text: newValue }));
-        break;
-      case "email":
-        setEmail((prevEmail) => ({ ...prevEmail, text: newValue }));
-        break;
-      case "map":
-        setMap((prevMap) => ({ ...prevMap, src: newValue }));
-        break;
-      default:
-        break;
-    }
-  };
+
+  const startIndex = (currentPage - 1) * contactPerPage;
+  const endIndex = startIndex + contactPerPage;
+  const paginatedContact = initialMessages.slice(startIndex, endIndex);
 
   return (
-    <div >
-      <h1 className="text-center">Contact Info</h1>
+    <div>
+      <h2 className="text-center text-gray-600">Contact Info</h2>
       <div className="container mx-auto p-4">
+        <table className="table-auto w-full mt-4 text-black bg-white">
+          <thead>
+            <tr>
+            <th className="border text-center p-2">ID</th>
+              <th className="border text-center p-2">Name</th>
+              <th className="border text-center p-2">Email</th>
+              <th className="border text-center p-2">Message</th>
+              <th className="border text-center p-2">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {paginatedContact.map((contact, index) => (
+              <tr key={index}>
+              <td className="border text-center p-2">{contact.id}</td>
 
-      <table className="table-auto w-full mt-4 text-black">
-        <thead>
-          <tr>
-            <th>Contact Type</th>
-            <th>Text</th>
-            <th>Link</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Location</td>
-            <td>
-              {location.isEditing ? (
-                <EditContactModal
-                  initialValue={location}
-                  onSave={(editedContact) =>
-                    handleSave("location", editedContact)
-                  }
-                  onCancel={() => handleCancel("location")}
-                />
-              ) : (
-                <span>{location.text}</span>
-              )}
-            </td>
-            <td>
-              {location.isEditing ? (
-                <EditContactModal
-                  initialValue={location}
-                  onSave={(editedContact) =>
-                    handleSave("location", editedContact)
-                  }
-                  onCancel={() => handleCancel("location")}
-                />
-              ) : (
-                <span>{location.link}</span>
-              )}
-            </td>
-            {!location.isEditing && (
-              <td>
-                <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("location")}>Edit</button>
-              </td>
-            )}
-          </tr>
-          <tr>
-            <td>Phone</td>
-            <td>
-              {phone.isEditing ? (
-                <EditContactModal
-                  initialValue={phone}
-                  onSave={(editedContact) => handleSave("phone", editedContact)}
-                  onCancel={() => handleCancel("phone")}
-                />
-              ) : (
-                <span>{phone.text}</span>
-              )}
-            </td>
-            <td>
-              {phone.isEditing ? (
-                <EditContactModal
-                  initialValue={phone}
-                  onSave={(editedContact) => handleSave("phone", editedContact)}
-                  onCancel={() => handleCancel("phone")}
-                />
-              ) : (
-                <span>{phone.to}</span>
-              )}
-            </td>
-            {!phone.isEditing && (
-              <td>
-                <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("phone")}>Edit</button>
-              </td>
-            )}
-          </tr>
-          <tr>
-            <td>Email</td>
-            <td>
-              {email.isEditing ? (
-                <EditContactModal
-                  initialValue={email}
-                  onSave={(editedContact) => handleSave("email", editedContact)}
-                  onCancel={() => handleCancel("email")}
-                />
-              ) : (
-                <span>{email.text}</span>
-              )}
-            </td>
-            <td>
-              {email.isEditing ? (
-                <EditContactModal
-                  initialValue={email}
-                  onSave={(editedContact) => handleSave("email", editedContact)}
-                  onCancel={() => handleCancel("email")}
-                />
-              ) : (
-                <span>{email.to}</span>
-              )}
-            </td>
-            {!email.isEditing && (
-              <td>
-                <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("email")}>Edit</button>
-              </td>
-            )}
-          </tr>
-        </tbody>
-      </table>
+                <td className="border text-center p-2">{contact.name}</td>
+              
+                <td className="border text-center p-2">
+                {contact.email}
+                </td>
+                <td className="border text-center p-2">
+                {contact.message}
+                </td>
+                <td className="border text-center p-2">
+                    <button
+                      className="bg-blue-500 text-white px-2 py-1 mr-2"
+                      onClick={() => handleView(contact.id)}
+                    >
+                      View
+                    </button>
+                    <button
+                    className="bg-red-500 text-white px-2 py-1 mr-2"
+                    onClick={() => handleDelete(index)}
+                  >
+                    Delate
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className="flex justify-between mt-4">
+        <button
+          onClick={handlePreviousPage}
+          className="font-semibold px-3 py-1 bg-blue-600 hover:underline text-white mr-2"
+        >
+          Previous
+        </button>
+        <button
+          onClick={handleNextPage}
+          className="font-semibold px-3 py-1 bg-blue-600 hover:underline text-white"
+        >
+          Next
+        </button>
       </div>
-      <MessagesPage />
-      <div className="map-admin">
-        <h1 className="header-text">Map link</h1>
-        {map.isEditing ? (
-          <EditContactModal
-            initialValue={map}
-            onSave={(editedContact) => handleSave("map", editedContact)}
-            onCancel={() => handleCancel("map")}
-          />
-        ) : (
-          <span className="Map-span">{map.text}</span>
+        <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        className="Modal"
+        overlayClassName="Overlay"
+      >
+        {selectedContact && (
+          <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center">
+          <div className="bg-white p-4 rounded shadow-md w-[600px]">  
+          <button
+          onClick={closeModal}
+          className="bg-blue-500 text-white px-2 py-1 mt-4 float-right"
+        >
+          X
+        </button>            
+        <h2>Footer Details</h2>
+            <p>ID: {selectedContact.id}</p>
+            <p>Title: {selectedContact.name}</p>
+            <p>Message: {selectedContact.email}</p>
+            <p>Message: {selectedContact.message}</p>
+
+          </div>
+          </div>
+
         )}
-        {!map.isEditing && (
-          <button className="bg-blue-500 text-white px-2 py-1 mr-2" onClick={() => handleEdit("map")}>Edit</button>
-        )}
+      </Modal>
       </div>
-    </div>
+{ /*     <MessagesPage />
+        */}    
+        </div>
   );
 };
 

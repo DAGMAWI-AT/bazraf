@@ -5,7 +5,6 @@ import { serviceData } from '../../../data/Data';
 
 function ServiceManage() {
   const [services, setServices] = useState([]);
-  const [error, setError] = useState('');
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,9 +60,7 @@ const navigate = useNavigate();
     setIsModalOpen(false);
   };
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+ 
 
   return (
     <div className="container mx-auto p-4">
@@ -120,6 +117,7 @@ const navigate = useNavigate();
           Previous
         </button>
         <div>
+        {paginate}
           Page {currentPage} of {totalPages}
         </div>
         <button onClick={() => handleNext()} disabled={indexOfLastService >= services.length} className="bg-blue-500 text-white px-4 py-2">

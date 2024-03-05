@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Label, TextInput, Textarea, FileInput } from "flowbite-react";
+import { Button, Label, TextInput, Textarea } from "flowbite-react";
 
 const UploadService = () => {
   // const [formData, setFormData] = useState({

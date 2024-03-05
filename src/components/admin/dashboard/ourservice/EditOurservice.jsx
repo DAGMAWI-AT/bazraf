@@ -42,7 +42,7 @@ const EditOurservice = () => {
 
   return (
     <div>
-    <h2 className="dark:text-black text-center" style={{ color: '#2d2e2e' }}>Edit Testimonial</h2>
+    <h2 className="dark:text-black text-center " style={{ color: '#2d2e2e' }}>Edit Testimonial</h2>
     <div className="max-w-5xl mx-auto mt-4">
       <form onSubmit="" className="bg-white shadow-md rounded-md p-8 text-black">
         <div className="grid grid-cols-2 gap-4 mt-4">
