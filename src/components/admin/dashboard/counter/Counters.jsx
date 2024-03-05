@@ -65,7 +65,7 @@ const Counters = () => {
     <div>
       <h2 className="dark:text-black text-center" style={{ color: '#2d2e2e' }}>Counters</h2>
 
-      <div className="container mx-auto p-4 bg-white box-decoration-slice  shadow-2xl shadow-blue-gray-900">
+      <div className="container mx-auto p-4  box-decoration-slice  shadow-2x">
       <button
           onClick={handleUpload}
           className="font-semibold px-3 py-1 bg-green-600 hover:underline dark:text-cyan-500 mr-0"
