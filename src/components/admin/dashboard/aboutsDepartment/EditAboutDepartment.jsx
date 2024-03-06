@@ -98,10 +98,10 @@ function EditAboutDepartment({ departmentId }) {
               Image URL:
             </label>
             <input
-              type="text"
+              type="file"
               id="image"
               name="image"
-              value={formData.image}
+              defaultValue={formData.image}
               onChange={handleChange}
               className="mt-1 p-2 border border-gray-300 rounded-md w-full"
             />

@@ -36,7 +36,6 @@ function AboutDepartment() {
     },
     // Add more department data as needed
   ];
-
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3; // Set the number of items per page
   const totalDepartments = departmentsData.length;
@@ -92,14 +91,16 @@ function AboutDepartment() {
   return (
     <div>
       <h2 className='text-center text-black'>Manageable Table</h2>
+      <div className="">
+
       <button
       onClick={handleUpload}
       className="bg-green-600 px-1 py-1 font-semibold hover:bg-orange-700 text-white hover:bg-sky-600 mr-0"
     >
       Upload
     </button>
-      <table className="table-auto w-full mt-4 text-black bg-white">
-        <thead>
+    <table className="table-auto w-full mt-4 text-black container mx-auto p-4 bg-white box-decoration-slice shadow-2xl shadow-blue-gray-900">
+    <thead>
           <tr>
             <th className="border p-3">ID</th>
             <th className="border p-3">Title</th>
@@ -141,7 +142,7 @@ function AboutDepartment() {
           ))}
         </tbody>
       </table>
-
+</div>
       <div className="flex justify-between mt-4">
         <button
           onClick={handlePrevPage}
