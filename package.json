@@ -23,6 +23,7 @@
     "axios": "^1.6.7",
     "flowbite-react": "^0.7.2",
     "framer-motion": "^10.16.4",
+    "google-auth-library": "^9.6.3",
     "gsap": "^3.12.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",

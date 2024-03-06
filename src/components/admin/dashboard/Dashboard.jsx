@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
 const clientId = '388570080751-pijbevqfogstaah75cufi6729gkfiq2o.apps.googleusercontent.com';
 const clientSecret = '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';
 const redirectUri = 'https://bazramern.netlify.app';
-const viewId = 'ga:UA-299901557-1'; // Replace with your Google Analytics view ID
+const viewId = 'ga:299588117'; // Replace with your Google Analytics view ID
 
 const Dashboard = () => {
   const [analyticsData, setAnalyticsData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,35 +42,32 @@ const Dashboard = () => {
         }));
 
         setAnalyticsData(data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching Google Analytics data:', error);
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
-  const chartData = {
-    labels: analyticsData?.map(item => item.date) || [],
-    datasets: [
-      {
-        label: 'Users',
-        data: analyticsData?.map(item => item.users) || [],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1,
-      },
-    ],
-  };
-
   return (
     <div>
       <h2>Your Dashboard</h2>
       <div>
-        {analyticsData ? (
-          <Line data={chartData} />
-        ) : (
+        {loading ? (
           <p>Loading data...</p>
+        ) : analyticsData ? (
+          <div>
+            <p>Date: {analyticsData[0]?.date}</p>
+            <p>Users: {analyticsData[0]?.users}</p>
+            {/* Add more data display as needed */}
+          </div>
+        ) : (
+          <p>{analyticsData[0]?.date}</p>
+
+          
         )}
       </div>
     </div>
