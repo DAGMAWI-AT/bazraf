@@ -1,9 +1,11 @@
-// Dashboard.js
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import axios from 'axios';
 
-const apiUrl = 'https://www.googleapis.com/analytics/v3/data/ga?ids=ga:YOUR_VIEW_ID&start-date=30daysAgo&end-date=today&metrics=ga:users&dimensions=ga:date';
+const clientId = '388570080751-pijbevqfogstaah75cufi6729gkfiq2o.apps.googleusercontent.com';
+const clientSecret = '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';
+const redirectUri = 'https://bazramern.netlify.app';
+const viewId = 'ga:UA-299901557-1'; // Replace with your Google Analytics view ID
 
 const Dashboard = () => {
   const [analyticsData, setAnalyticsData] = useState(null);
@@ -11,9 +13,25 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Step 1: Get Access Token
+        const authResponse = await axios.post('https://oauth2.googleapis.com/token', null, {
+          params: {
+            client_id: clientId,
+            client_secret: clientSecret,
+            grant_type: 'refresh_token',
+            redirect_uri: redirectUri,
+            refresh_token: 'YOUR_REFRESH_TOKEN', // Replace with your refresh token
+          },
+        });
+
+        const accessToken = authResponse.data.access_token;
+
+        // Step 2: Fetch Data from Google Analytics
+        const apiUrl = `https://www.googleapis.com/analytics/v3/data/ga?ids=${viewId}&start-date=30daysAgo&end-date=today&metrics=ga:users&dimensions=ga:date`;
+
         const response = await axios.get(apiUrl, {
           headers: {
-            Authorization: 'Bearer YOUR_ACCESS_TOKEN',
+            Authorization: `Bearer ${accessToken}`,
           },
         });
 
